@@ -13,8 +13,8 @@ const activeLink = ref('')
 const links = ref<MemberzoneMenuItem[]>([])
 
 const data = [{
-  path: '/users/user-details',
-  pathSSO: `/users/user-details`,
+  path: 'https://www.tempo.co/users/user-details',
+  pathSSO: `https://www.tempo.co/users/user-details`,
   label: `
     <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -42,8 +42,8 @@ const data = [{
     <span>Informasi Akun</span>
   `,
 }, {
-  path: '/users/settings',
-  pathSSO: `/users/settings`,
+  path: 'https://www.tempo.co/users/settings',
+  pathSSO: `https://www.tempo.co/users/settings`,
   label: `
     <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -71,8 +71,8 @@ const data = [{
     <span>Pengaturan Akun</span>
   `,
 }, {
-  path: '/users/subscriptions',
-  pathSSO: `/users/subscriptions`,
+  path: 'https://www.tempo.co/users/subscriptions',
+  pathSSO: `https://www.tempo.co/users/subscriptions`,
   label: `
     <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -99,8 +99,8 @@ const data = [{
     <span>Langganan</span>
   `,
 }, {
-  path: '/users/voucher-instant',
-  pathSSO: `/voucher/instant`,
+  path: 'https://www.tempo.co/users/voucher-instant',
+  pathSSO: `https://www.tempo.co/users/voucher-instant`,
   label: `
     <svg
     xmlns="http://www.w3.org/2000/svg"
