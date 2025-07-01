@@ -1,0 +1,49 @@
+{
+  "name": "@tech-of-tempo/memberzone-module",
+  "version": "1.0.1",
+  "description": "A reusable Memberzone component library for Nuxt 3",
+  "main": "./dist/module.mjs",
+  "type": "module",
+  "keywords": [
+    "test"
+  ],
+  "author": "Fikry Ramadhana",
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "npm run dev:prepare && nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run prepack && changelogen --release && npm publish && git push --follow-tags"
+  },
+  "peerDependencies": {
+    "nuxt": "^3.17.5",
+    "vue": "^3.5.17",
+    "@nuxt/image": "^1.10.0",
+    "tailwindcss": "^4.1.10",
+    "tw-animate-css": "^1.3.4",
+    "lucide-vue-next": "^0.511.0"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^1.0.1",
+    "changelogen": "^0.6.1",
+    "vue-tsc": "^2.2.10"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.17.5",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "radix-vue": "^1.9.17",
+    "tailwind-merge": "^3.3.1",
+    "vite": "^6.3.5"
+  }
+}
