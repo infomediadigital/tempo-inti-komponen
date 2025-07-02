@@ -21,7 +21,7 @@ const userSubscription = [
   {
     name: 'Teras',
     logo: '/img/teras_initial_logo.svg',
-    link: 'https://membership.tempo.co/',
+    link: 'https://www.teras.id/',
     status: 'Aktif',
   }
 ]
