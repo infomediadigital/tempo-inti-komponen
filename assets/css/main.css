@@ -96,3 +96,24 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+.pswp__description {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 10;
+}
+
+.pswp__img {
+  max-width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}

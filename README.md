@@ -1,99 +1,75 @@
-# 🌟 @tech-of-tempo/memberzone-module
+# Nuxt Minimal Starter
 
-A **reusable Nuxt 3 component library** for building modern, member-focused interfaces. The `<TempoMemberzonePlugin>` component delivers a customizable, responsive, and accessible member zone UI, styled with **Tailwind CSS**, powered by **Radix Vue** for accessibility, and enhanced with **Lucide icons**.
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## ✨ Features
+## Setup
 
-- **Member Zone Component**: `<TempoMemberzonePlugin>` provides a flexible UI for displaying subscription-based member zones with dynamic branding and layout. 🎨
-- **Accessible UI**: Uses `radix-vue` for WCAG-compliant components. ♿
-- **Icon Support**: Integrates `lucide-vue-next` for modern, lightweight icons. 🖼️
-- **Responsive Design**: Adapts to screen sizes with Tailwind CSS and props like `side`. 📱💻
-- **Branding Support**: Customizes content based on `template-for` (e.g., `"teras"`) and subscription data. 🏷️
-- **TypeScript Ready**: Fully typed for robust development. 🛠️
-
-## 📦 Installation
-
-### 1. Install the Package
-```bash
-npm install @tech-of-tempo/memberzone-module
-```
-
-### 2. Install Peer Dependencies
-
-The module requires the following dependencies in your Nuxt 3 project:
+Make sure to install dependencies:
 
 ```bash
-npm install nuxt@^3.17.5 vue@^3.5.17 @nuxt/image@^1.10.0 tailwindcss@^4.1.10 tw-animate-css@^1.3.4 lucide-vue-next@^0.511.0
+# npm
+npm install
+
+# pnpm
+pnpm install
+
+# yarn
+yarn install
+
+# bun
+bun install
 ```
 
-### 3. Add to Nuxt Config
+## Development Server
 
-Add the module to your ```nuxt.config.ts```:
+Start the development server on `http://localhost:3000`:
 
 ```bash
-export default defineNuxtConfig({
-  modules: ['@tech-of-tempo/memberzone-module'],
-  // Optional: Configure Tailwind CSS
-  css: ['~/assets/css/tailwind.css']
-});
+# npm
+npm run dev
+
+# pnpm
+pnpm dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
 ```
 
-### 4. Set Up Tailwind CSS
+## Production
 
-Create an ```assets/css/tailwind.css``` file:
+Build the application for production:
 
 ```bash
-@import "tailwindcss"
+# npm
+npm run build
+
+# pnpm
+pnpm build
+
+# yarn
+yarn build
+
+# bun
+bun run build
 ```
 
-## 🚀 Usage
-
-The module’s components are auto-imported into your Nuxt 3 project, allowing you to use ```<TempoMemberzonePlugin>``` directly in your pages or components.
-
-Example: Using ```<TempoMemberzonePlugin>```
+Locally preview production build:
 
 ```bash
-<template>
-    <TempoMemberzonePlugin
-      use-initial="F"
-      template-for="teras"
-      :side="viewport.isGreaterOrEquals('lg') ? 'right' : 'left'"
-      header-logo="/img/teras_logo.png"
-    />
-</template>
+# npm
+npm run preview
 
-<script setup>
-import { useViewport } from 'nuxt-viewport'; // Or your preferred viewport utility
-const viewport = useViewport();
-</script>
+# pnpm
+pnpm preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
 ```
 
-**Component Props**
-
-The ```<TempoMemberzonePlugin>``` component supports the following props:
-
-- ```use-initial``` (String): Sets the initial letter or identifier for the member zone (e.g., ```"F"``` for a user’s initial).
-- ```template-for``` (String): Specifies the template or branding context (e.g., ```"teras"``` for a specific brand).
-- ```side``` (String): Controls the layout orientation (```"left"``` or ```"right"```) based on screen size or other logic.
-- ```header-logo``` (String): Path to the logo image for branding (e.g., ```"/img/teras_logo.png"```).
-
-_**Note**: Additional props or components may be available. Detailed documentation will be added soon._
-
-## 📋 Requirements
-
-Ensure your project includes:
-
-- Nuxt: ```^3.17.5```
-- Vue: ```^3.5.17```
-- @nuxt/image: ```^1.10.0``` (for optimized images)
-- tailwindcss: ```^4.1.10``` (for styling)
-- tw-animate-css: ```^1.3.4``` (for animations)
-- lucide-vue-next: ```^0.511.0``` (for icons)
-
-## 📄 License
-
-Licensed under the ISC License. See the LICENSE file for details.
-
-## 🙌 Author
-
-Created with ❤️ by XXX.
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
