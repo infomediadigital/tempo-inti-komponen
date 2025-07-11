@@ -1,0 +1,787 @@
+{
+  "highlightData": [
+    {
+      "title": "Pramono Anung Klaim JakCare Selamatkan Orang Nyaris Bunuh Diri di Jakarta",
+      "description": "Gubernur Jakarta Pramono Anung mengungkapkan JakCare telah menyelamatkan dua orang yang hendak bunuh diri. Apa itu layanan JakCare?",
+      "partnerName": "Dari laut",
+      "partnerLogo": "/img/partner/logo-1.svg",
+      "image": "/img/cover/content-1.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Wujud Regulasi KPU dalam Memerangi Disinformasi Dipertanyakan",
+      "description": "",
+      "partnerName": "Langgam.id",
+      "partnerLogo": "/img/partner/logo-2.svg",
+      "image": "/img/cover/content-2.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Aldi Taher Didaftarkan 2 Partai Politik Jadi Caleg: Jangankan KPU, Saya Saja Bingung",
+      "description": "",
+      "partnerName": "Riau terkini",
+      "partnerLogo": "/img/partner/logo-3.svg",
+      "image": "/img/cover/content-3.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Fahri Hamzah Dorong KPU Buat Panggung untuk Parpol Adu Gagasan",
+      "description": "",
+      "partnerName": "Banjarhits",
+      "partnerLogo": "/img/partner/logo-4.svg",
+      "image": "/img/cover/content-4.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Gerindra: Pertemuan Megawati dengan Prabowo Diperlukan",
+      "description": "",
+      "partnerName": "NTB satu",
+      "partnerLogo": "/img/partner/logo-5.svg",
+      "image": "/img/cover/content-5.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    }
+  ],
+  "jaringanNetwork": [
+    {
+      "name": "/img/partner/logo-1.svg",
+      "label": "Langgam.id",
+      "url": "/mitra/langgam-id",
+      "provinsi": "DKI Jakarta"
+    },
+    {
+      "name": "/img/partner/logo-2.svg",
+      "label": "Darilaut.id",
+      "url": "/mitra/darilaut-id",
+      "provinsi": "Jawa Barat"
+    },
+    {
+      "name": "/img/partner/logo-3.svg",
+      "label": "Riau Terkini",
+      "url": "/mitra/rtc",
+      "provinsi": "Sumatera Selatan"
+    },
+    {
+      "name": "/img/partner/logo-4.svg",
+      "label": "Berita.id",
+      "url": "/mitra/berita",
+      "provinsi": "DKI Jakarta"
+    },
+    {
+      "name": "/img/partner/logo-5.svg",
+      "label": "News.id",
+      "url": "/mitra/news",
+      "provinsi": "Jawa Tengah"
+    }
+  ],
+  "provinsiList": [
+    "Aceh",
+    "Sumatera Utara",
+    "Sumatera Barat",
+    "Riau",
+    "Kepulauan Riau",
+    "Jambi",
+    "Sumatera Selatan",
+    "Bangka Belitung",
+    "Bengkulu",
+    "Lampung",
+    "DKI Jakarta",
+    "Jawa Barat",
+    "Banten",
+    "Jawa Tengah",
+    "DI Yogyakarta",
+    "Jawa Timur",
+    "Bali",
+    "Nusa Tenggara Barat",
+    "Nusa Tenggara Timur",
+    "Kalimantan Barat",
+    "Kalimantan Tengah",
+    "Kalimantan Selatan",
+    "Kalimantan Timur",
+    "Kalimantan Utara",
+    "Sulawesi Utara",
+    "Gorontalo",
+    "Sulawesi Tengah",
+    "Sulawesi Barat",
+    "Sulawesi Selatan",
+    "Sulawesi Tenggara",
+    "Maluku",
+    "Maluku Utara",
+    "Papua",
+    "Papua Barat",
+    "Papua Tengah",
+    "Papua Pegunungan",
+    "Papua Selatan",
+    "Papua Barat Daya"
+  ],
+  "socialMediaTeras": [
+    {
+      "name": "instagram",
+      "url": "https://instagram.com"
+    },
+    {
+      "name": "x",
+      "url": "https://x.com"
+    },
+    {
+      "name": "facebook",
+      "url": "https://facebook.com"
+    }
+  ],
+  "LatestNews": [
+    {
+      "title": "Pramono Anung Klaim JakCare Selamatkan Orang Nyaris Bunuh Diri di Jakarta",
+      "description": "Gubernur Jakarta Pramono Anung mengungkapkan JakCare telah menyelamatkan dua orang yang hendak bunuh diri. Apa itu layanan JakCare?",
+      "partnerName": "Dari laut",
+      "partnerLogo": "/img/partner/logo-1.svg",
+      "image": "/img/cover/content-1.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Wujud Regulasi KPU dalam Memerangi Disinformasi Dipertanyakan",
+      "description": "",
+      "partnerName": "Langgam.id",
+      "partnerLogo": "/img/partner/logo-2.svg",
+      "image": "/img/cover/content-2.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Aldi Taher Didaftarkan 2 Partai Politik Jadi Caleg: Jangankan KPU, Saya Saja Bingung",
+      "description": "",
+      "partnerName": "Riau terkini",
+      "partnerLogo": "/img/partner/logo-3.svg",
+      "image": "/img/cover/content-3.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Fahri Hamzah Dorong KPU Buat Panggung untuk Parpol Adu Gagasan",
+      "description": "",
+      "partnerName": "Banjarhits",
+      "partnerLogo": "/img/partner/logo-4.svg",
+      "image": "/img/cover/content-4.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Gerindra: Pertemuan Megawati dengan Prabowo Diperlukan",
+      "description": "",
+      "partnerName": "NTB satu",
+      "partnerLogo": "/img/partner/logo-5.svg",
+      "image": "/img/cover/content-5.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Pramono Anung Klaim JakCare Selamatkan Orang Nyaris Bunuh Diri di Jakarta",
+      "description": "Gubernur Jakarta Pramono Anung mengungkapkan JakCare telah menyelamatkan dua orang yang hendak bunuh diri. Apa itu layanan JakCare?",
+      "partnerName": "Dari laut",
+      "partnerLogo": "/img/partner/logo-1.svg",
+      "image": "/img/cover/content-1.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Wujud Regulasi KPU dalam Memerangi Disinformasi Dipertanyakan",
+      "description": "",
+      "partnerName": "Langgam.id",
+      "partnerLogo": "/img/partner/logo-2.svg",
+      "image": "/img/cover/content-2.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Aldi Taher Didaftarkan 2 Partai Politik Jadi Caleg: Jangankan KPU, Saya Saja Bingung",
+      "description": "",
+      "partnerName": "Riau terkini",
+      "partnerLogo": "/img/partner/logo-3.svg",
+      "image": "/img/cover/content-3.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Fahri Hamzah Dorong KPU Buat Panggung untuk Parpol Adu Gagasan",
+      "description": "",
+      "partnerName": "Banjarhits",
+      "partnerLogo": "/img/partner/logo-4.svg",
+      "image": "/img/cover/content-4.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Gerindra: Pertemuan Megawati dengan Prabowo Diperlukan",
+      "description": "",
+      "partnerName": "NTB satu",
+      "partnerLogo": "/img/partner/logo-5.svg",
+      "image": "/img/cover/content-5.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Pramono Anung Klaim JakCare Selamatkan Orang Nyaris Bunuh Diri di Jakarta",
+      "description": "Gubernur Jakarta Pramono Anung mengungkapkan JakCare telah menyelamatkan dua orang yang hendak bunuh diri. Apa itu layanan JakCare?",
+      "partnerName": "Dari laut",
+      "partnerLogo": "/img/partner/logo-1.svg",
+      "image": "/img/cover/content-1.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Wujud Regulasi KPU dalam Memerangi Disinformasi Dipertanyakan",
+      "description": "",
+      "partnerName": "Langgam.id",
+      "partnerLogo": "/img/partner/logo-2.svg",
+      "image": "/img/cover/content-2.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Aldi Taher Didaftarkan 2 Partai Politik Jadi Caleg: Jangankan KPU, Saya Saja Bingung",
+      "description": "",
+      "partnerName": "Riau terkini",
+      "partnerLogo": "/img/partner/logo-3.svg",
+      "image": "/img/cover/content-3.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Fahri Hamzah Dorong KPU Buat Panggung untuk Parpol Adu Gagasan",
+      "description": "",
+      "partnerName": "Banjarhits",
+      "partnerLogo": "/img/partner/logo-4.svg",
+      "image": "/img/cover/content-4.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Gerindra: Pertemuan Megawati dengan Prabowo Diperlukan",
+      "description": "",
+      "partnerName": "NTB satu",
+      "partnerLogo": "/img/partner/logo-5.svg",
+      "image": "/img/cover/content-5.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Pramono Anung Klaim JakCare Selamatkan Orang Nyaris Bunuh Diri di Jakarta",
+      "description": "Gubernur Jakarta Pramono Anung mengungkapkan JakCare telah menyelamatkan dua orang yang hendak bunuh diri. Apa itu layanan JakCare?",
+      "partnerName": "Dari laut",
+      "partnerLogo": "/img/partner/logo-1.svg",
+      "image": "/img/cover/content-1.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Wujud Regulasi KPU dalam Memerangi Disinformasi Dipertanyakan",
+      "description": "",
+      "partnerName": "Langgam.id",
+      "partnerLogo": "/img/partner/logo-2.svg",
+      "image": "/img/cover/content-2.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Aldi Taher Didaftarkan 2 Partai Politik Jadi Caleg: Jangankan KPU, Saya Saja Bingung",
+      "description": "",
+      "partnerName": "Riau terkini",
+      "partnerLogo": "/img/partner/logo-3.svg",
+      "image": "/img/cover/content-3.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Fahri Hamzah Dorong KPU Buat Panggung untuk Parpol Adu Gagasan",
+      "description": "",
+      "partnerName": "Banjarhits",
+      "partnerLogo": "/img/partner/logo-4.svg",
+      "image": "/img/cover/content-4.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Gerindra: Pertemuan Megawati dengan Prabowo Diperlukan",
+      "description": "",
+      "partnerName": "NTB satu",
+      "partnerLogo": "/img/partner/logo-5.svg",
+      "image": "/img/cover/content-5.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": false,
+      "href": "mendalam/pramono-anung--1"
+    },
+    {
+      "title": "Fahri Hamzah Dorong KPU Buat Panggung untuk Parpol Adu Gagasan",
+      "description": "",
+      "partnerName": "Banjarhits",
+      "partnerLogo": "/img/partner/logo-4.svg",
+      "image": "/img/cover/content-4.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "label": true,
+      "href": "mendalam/pramono-anung--1"
+    }
+  ],
+  "supportBy": [
+    {
+      "img": "/support/tempo.png",
+      "url": "https://tempo.co/"
+    },
+    {
+      "img": "/support/if.png",
+      "url": "https://ifpim.org/"
+    },
+    {
+      "img": "/support/amsi.png",
+      "url": "https://amsi.or.id/"
+    },
+    {
+      "img": "/support/institute.png",
+      "url": "https://tempoinstitute.com/"
+    }
+  ],
+  "informationGuide": [
+    {
+      "name": "Tentang Kami",
+      "url": "/tentangkami"
+    },
+    {
+      "name": "Pedoman Media Siber",
+      "url": "/pedoman-media-siber"
+    },
+    {
+      "name": "Kode Etik dan Pedoman Jurnalistik",
+      "url": "/kode-etik-dan-pedoman-jurnalistik"
+    },
+    {
+      "name": "Pedoman Penggunaan Konten Terhadap AI",
+      "url": "/pedoman-penggunaan-konten-terhadap-ai"
+    }
+  ],
+  "mediaNetwork": [
+    {
+      "name": "Tempo English Magz",
+      "href": "https://magz.tempo.co/"
+    },
+    {
+      "name": "Tempo.co English",
+      "href": "https://en.tempo.co/"
+    },
+    {
+      "name": "Tempo Store",
+      "href": "https://store.tempo.co/"
+    },
+    {
+      "name": "Tempo TV",
+      "href": "https://www.youtube.com/channel/UCpe3xgNfL52vIhV5kewEc1Q"
+    },
+    {
+      "name": "Tempo Witness",
+      "href": "https://witness.tempo.co/"
+    },
+    {
+      "name": "Tempo Institute",
+      "href": "https://tempoinstitute.com/"
+    },
+    {
+      "name": "Tempo Data Science",
+      "href": "https://data.tempo.co/"
+    },
+    {
+      "name": "Orbitin",
+      "href": "https://orbitin.id/"
+    },
+    {
+      "name": "Telusuri",
+      "href": "http://telusuri.id/"
+    },
+    {
+      "name": "Ruang dan Tempo",
+      "href": "https://www.instagram.com/ruangdantempo/"
+    },
+    {
+      "name": "Ziliun",
+      "href": "https://ziliun.com/"
+    },
+    {
+      "name": "Kok Bisa",
+      "href": "https://www.youtube.com/channel/UCu0yQD7NFMyLu_-TmKa4Hqg"
+    },
+    {
+      "name": "Temotion",
+      "href": "https://www.tempo-animation.id/"
+    },
+    {
+      "name": "Cantika",
+      "href": "https://www.cantika.com/"
+    },
+    {
+      "name": "Indonesiana",
+      "href": "https://www.indonesiana.id/"
+    },
+    {
+      "name": "Gooto",
+      "href": "https://www.gooto.com/"
+    }
+  ],
+  "footerContent": [
+    {
+      "copyright": "© 2025 Teras by Tempo. All Rights Reserved.",
+      "principle": "<span class=\"font-bold\">Teras.id</span> membangun ekosistem jurnalisme lokal yang independen dan mendalam untuk kepentingan publik. Kami percaya bahwa publik layak untuk mendapat informasi yang kredibel, serta terbebas dari tekanan politik dan finansial."
+    }
+  ],
+  "rubrics": [
+    { "name": "Berita Daerah", "url": "berita-daerah" },
+    { "name": "Mendalam", "url": "mendalam" },
+    { "name": "Perspektif", "url": "perspektif" },
+    { "name": "Jeda", "url": "jeda" }
+  ],
+  "kanalSection": [
+    {
+      "kanalTitle": "Berita Daerah",
+      "kanalDescription": "Update berita daerah terkini dari berbagai wilayah Indonesia. Fokus pada isu lokal, kebijakan, dan dinamika kehidupan masyarakat.",
+      "kanalUrl": "/berita-daerah",
+      "kanalData": [
+        {
+          "title": "[Berita Daerah] Pramono Anung Klaim JakCare Selamatkan Orang Nyaris Bunuh Diri di Jakarta",
+          "description": "Gubernur Jakarta Pramono Anung mengungkapkan JakCare telah menyelamatkan dua orang yang hendak bunuh diri. Apa itu layanan JakCare?",
+          "partnerName": "Dari laut",
+          "partnerLogo": "/img/partner/logo-1.svg",
+          "image": "/img/cover/content-1.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": true
+        },
+        {
+          "title": "Wujud Regulasi KPU dalam Memerangi Disinformasi Dipertanyakan",
+          "description": "",
+          "partnerName": "Langgam.id",
+          "partnerLogo": "/img/partner/logo-2.svg",
+          "image": "/img/cover/content-2.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": true
+        },
+        {
+          "title": "Aldi Taher Didaftarkan 2 Partai Politik Jadi Caleg: Jangankan KPU, Saya Saja Bingung",
+          "description": "",
+          "partnerName": "Riau terkini",
+          "partnerLogo": "/img/partner/logo-3.svg",
+          "image": "/img/cover/content-3.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": false
+        },
+        {
+          "title": "Fahri Hamzah Dorong KPU Buat Panggung untuk Parpol Adu Gagasan",
+          "description": "",
+          "partnerName": "Banjarhits",
+          "partnerLogo": "/img/partner/logo-4.svg",
+          "image": "/img/cover/content-4.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": false
+        },
+        {
+          "title": "Gerindra: Pertemuan Megawati dengan Prabowo Diperlukan",
+          "description": "",
+          "partnerName": "NTB satu",
+          "partnerLogo": "/img/partner/logo-5.svg",
+          "image": "/img/cover/content-5.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": false
+        }
+      ]
+    },
+    {
+      "kanalTitle": "Perspektif",
+      "kanalDescription": "Ruang dialog publik yang diisi dengan opini dan analisis dari berbagai sudut pandang. Perkaya wawasanmu lewat gagasan kritis dan reflektif.",
+      "kanalUrl": "/perspektif",
+      "kanalData": [
+        {
+          "title": "[Perspektif] Pramono Anung Klaim JakCare Selamatkan Orang Nyaris Bunuh Diri di Jakarta",
+          "description": "Gubernur Jakarta Pramono Anung mengungkapkan JakCare telah menyelamatkan dua orang yang hendak bunuh diri. Apa itu layanan JakCare?",
+          "partnerName": "Dari laut",
+          "partnerLogo": "/img/partner/logo-1.svg",
+          "image": "/img/cover/content-1.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": true
+        },
+        {
+          "title": "Wujud Regulasi KPU dalam Memerangi Disinformasi Dipertanyakan",
+          "description": "",
+          "partnerName": "Langgam.id",
+          "partnerLogo": "/img/partner/logo-2.svg",
+          "image": "/img/cover/content-2.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": true
+        },
+        {
+          "title": "Aldi Taher Didaftarkan 2 Partai Politik Jadi Caleg: Jangankan KPU, Saya Saja Bingung",
+          "description": "",
+          "partnerName": "Riau terkini",
+          "partnerLogo": "/img/partner/logo-3.svg",
+          "image": "/img/cover/content-3.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": false
+        },
+        {
+          "title": "Fahri Hamzah Dorong KPU Buat Panggung untuk Parpol Adu Gagasan",
+          "description": "",
+          "partnerName": "Banjarhits",
+          "partnerLogo": "/img/partner/logo-4.svg",
+          "image": "/img/cover/content-4.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": false
+        },
+        {
+          "title": "Gerindra: Pertemuan Megawati dengan Prabowo Diperlukan",
+          "description": "",
+          "partnerName": "NTB satu",
+          "partnerLogo": "/img/partner/logo-5.svg",
+          "image": "/img/cover/content-5.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": false
+        }
+      ]
+    },
+    {
+      "kanalTitle": "Jeda",
+      "kanalDescription": "Temukan berita ringan dan inspiratif seputar budaya lokal, gaya hidup, dan cerita-cerita yang dekat dengan keseharian masyarakat Indonesia.",
+      "kanalUrl": "/jeda",
+      "kanalData": [
+        {
+          "title": "[Jeda Kanal] Pramono Anung Klaim JakCare Selamatkan Orang Nyaris Bunuh Diri di Jakarta",
+          "description": "Gubernur Jakarta Pramono Anung mengungkapkan JakCare telah menyelamatkan dua orang yang hendak bunuh diri. Apa itu layanan JakCare?",
+          "partnerName": "Dari laut",
+          "partnerLogo": "/img/partner/logo-1.svg",
+          "image": "/img/cover/content-1.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": true
+        },
+        {
+          "title": "Wujud Regulasi KPU dalam Memerangi Disinformasi Dipertanyakan",
+          "description": "",
+          "partnerName": "Langgam.id",
+          "partnerLogo": "/img/partner/logo-2.svg",
+          "image": "/img/cover/content-2.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": true
+        },
+        {
+          "title": "Aldi Taher Didaftarkan 2 Partai Politik Jadi Caleg: Jangankan KPU, Saya Saja Bingung",
+          "description": "",
+          "partnerName": "Riau terkini",
+          "partnerLogo": "/img/partner/logo-3.svg",
+          "image": "/img/cover/content-3.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": false
+        },
+        {
+          "title": "Fahri Hamzah Dorong KPU Buat Panggung untuk Parpol Adu Gagasan",
+          "description": "",
+          "partnerName": "Banjarhits",
+          "partnerLogo": "/img/partner/logo-4.svg",
+          "image": "/img/cover/content-4.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": false
+        },
+        {
+          "title": "Gerindra: Pertemuan Megawati dengan Prabowo Diperlukan",
+          "description": "",
+          "partnerName": "NTB satu",
+          "partnerLogo": "/img/partner/logo-5.svg",
+          "image": "/img/cover/content-5.svg",
+          "buttonText": "HAM",
+          "buttonLink": "https://www.darilaut.id",
+          "label": false
+        }
+      ]
+    }
+  ],
+  "listMitra": [
+    {
+      "name": "Banjar Hits",
+      "logo": "/img/partner/logo_banjar_hits.svg",
+      "url": "/mitra/banjar-hits"
+    },
+    {
+      "name": "Dari Laut",
+      "logo": "/img/partner/logo_darilaut.svg",
+      "url": "/mitra/darilaut"
+    },
+    {
+      "name": "Haka",
+      "logo": "/img/partner/logo_haka.svg",
+      "url": "/mitra/haka"
+    },
+    {
+      "name": "NTB Satu",
+      "logo": "/img/partner/logo_ntb_satu.svg",
+      "url": "/mitra/ntb-satu"
+    },
+    {
+      "name": "Suara Kalbar",
+      "logo": "/img/partner/logo_suara_kalbar.svg",
+      "url": "/mitra/suara-kalbar"
+    },
+    {
+      "name": "Dari Laut",
+      "logo": "/img/partner/logo_darilaut.svg",
+      "url": "/mitra/darilaut"
+    }
+  ],
+  "BeritaDaerah": [
+    {
+      "title": "Pramono Anung Klaim JakCare Selamatkan Orang Nyaris Bunuh Diri di Jakarta",
+      "description": "Gubernur Jakarta Pramono Anung mengungkapkan JakCare telah menyelamatkan dua orang yang hendak bunuh diri. Apa itu layanan JakCare?",
+      "partnerName": "Dari laut",
+      "partnerLogo": "/img/partner/logo-1.svg",
+      "image": "/img/cover/content-1.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "location": "DKI Jakarta",
+      "label": true
+    },
+    {
+      "title": "Wujud Regulasi KPU dalam Memerangi Disinformasi Dipertanyakan",
+      "description": "",
+      "partnerName": "Langgam.id",
+      "partnerLogo": "/img/partner/logo-2.svg",
+      "image": "/img/cover/content-2.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "location": "Jawa Barat",
+      "label": true
+    },
+    {
+      "title": "Aldi Taher Didaftarkan 2 Partai Politik Jadi Caleg: Jangankan KPU, Saya Saja Bingung",
+      "description": "",
+      "partnerName": "Riau terkini",
+      "partnerLogo": "/img/partner/logo-3.svg",
+      "image": "/img/cover/content-3.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "location": "DKI Jakarta",
+      "label": false
+    },
+    {
+      "title": "Fahri Hamzah Dorong KPU Buat Panggung untuk Parpol Adu Gagasan",
+      "description": "",
+      "partnerName": "Banjarhits",
+      "partnerLogo": "/img/partner/logo-4.svg",
+      "image": "/img/cover/content-4.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "location": "DKI Jakarta",
+      "label": false
+    },
+    {
+      "title": "Gerindra: Pertemuan Megawati dengan Prabowo Diperlukan",
+      "description": "",
+      "partnerName": "NTB satu",
+      "partnerLogo": "/img/partner/logo-5.svg",
+      "image": "/img/cover/content-5.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "location": "Jawa Timur",
+      "label": false
+    },
+    {
+      "title": "Pramono Anung Klaim JakCare Selamatkan Orang Nyaris Bunuh Diri di Jakarta",
+      "description": "Gubernur Jakarta Pramono Anung mengungkapkan JakCare telah menyelamatkan dua orang yang hendak bunuh diri. Apa itu layanan JakCare?",
+      "partnerName": "Dari laut",
+      "partnerLogo": "/img/partner/logo-1.svg",
+      "image": "/img/cover/content-1.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "location": "DKI Jakarta",
+      "label": true
+    },
+    {
+      "title": "Wujud Regulasi KPU dalam Memerangi Disinformasi Dipertanyakan",
+      "description": "",
+      "partnerName": "Langgam.id",
+      "partnerLogo": "/img/partner/logo-2.svg",
+      "image": "/img/cover/content-2.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "location": "Jawa Barat",
+      "label": true
+    },
+    {
+      "title": "Aldi Taher Didaftarkan 2 Partai Politik Jadi Caleg: Jangankan KPU, Saya Saja Bingung",
+      "description": "",
+      "partnerName": "Riau terkini",
+      "partnerLogo": "/img/partner/logo-3.svg",
+      "image": "/img/cover/content-3.svg",
+      "buttonText": "HAM",
+      "buttonLink": "https://www.darilaut.id",
+      "location": "Jambi",
+      "label": false
+    }
+  ]
+}
