@@ -1,8 +1,40 @@
 <script setup lang="ts">
 import mock from '@/data/mock.json'
-const { sidebar } = defineProps<{
+const { sidebar, templateFor, useInitial } = defineProps<{
   sidebar?: string
+  templateFor: string
+  useInitial: string
 }>()
+
+const userSubscription = [
+  {
+    name: 'Tempo Plus',
+    logo: '/img/t_plus_logo.svg',
+    link: 'https://tempo.co/',
+    status: 'Aktif',
+  },
+  {
+    name: 'Tempo VIP',
+    logo: '/img/t_vip_logo.svg',
+    link: 'https://membership.tempo.co/',
+    status: 'Tidak Aktif',
+  },
+  {
+    name: 'Teras',
+    logo: '/img/teras_initial_logo.svg',
+    link: 'https://teras.id/',
+    status: 'Aktif',
+  }
+]
+
+const terasIndex = userSubscription.findIndex(
+  (subscription) => subscription.name === 'Teras'
+);
+
+if (templateFor.toLowerCase() === 'teras') {
+  const [terasItem] = userSubscription.splice(terasIndex, 1);
+  userSubscription.unshift(terasItem);
+}
 
 </script>
 
@@ -13,7 +45,7 @@ const { sidebar } = defineProps<{
         <div>
           <figure class="bg-white h-[61px] w-[61px] relative overflow-hidden rounded-full">
             <p class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-semibold text-xl text-[#D61D23]">
-              H
+              {{ useInitial }}
             </p>
           </figure>
         </div>
@@ -34,55 +66,25 @@ const { sidebar } = defineProps<{
             Status Langganan
         </p>
         <div class="container bg-white rounded-xl p-5">
-          <div class="flex gap-3 items-center pb-4 mb-4 border-b border-[#EEEEEE]">
+          <div v-for="(subscription, index) in userSubscription" :key="index + subscription.name" class="flex gap-3 items-center pb-4 mb-4 border-b border-[#EEEEEE]">
             <nuxt-img
-              src="/img/teras_initial_logo.svg"
-              alt="Logo Teras Initial"
+              :src="subscription.logo"
+              :alt="`Logo ${subscription.name} Initial`"
               class="mt-1"
               width="19px"
               height="19px"
             />
-            <nuxt-link to="https://teras.id/" class="text-sm underline font-semibold text-neutral-1200" external>
-              Teras
+            <nuxt-link :to="subscription.link" class="text-sm underline font-semibold text-neutral-1200" external>
+              {{ subscription.name }}
             </nuxt-link>
-            <p class="bg-[#F6FFF8] text-xs font-medium text-[#43A047] ms-auto py-1 px-2">
-                Aktif
-            </p>
-          </div>
-          <div class="flex gap-3 items-center pb-4 mb-4 border-b border-[#EEEEEE]">
-            <nuxt-img
-              src="/img/t_plus_logo.svg"
-              alt="Logo Teras Initial"
-              class="mt-1"
-              width="19px"
-              height="19px"
-            />
-            <nuxt-link to="https://tempo.co/" class="text-sm underline font-semibold text-neutral-1200" external>
-              Tempo Plus
-            </nuxt-link>
-            <p class="bg-[#F6FFF8] text-xs font-medium text-[#43A047] ms-auto py-1 px-2">
-              Aktif
-            </p>
-          </div>
-          <div class="flex gap-3 items-center pb-4 mb-4 border-b border-[#EEEEEE]">
-            <nuxt-img
-              src="/img/t_vip_logo.svg"
-              alt="Logo Teras Initial"
-              class="mt-1"
-              width="19px"
-              height="19px"
-            />
-            <nuxt-link to="https://membership.tempo.co/" class="text-sm underline font-semibold text-neutral-1200" external>
-              Tempo VIP
-            </nuxt-link>
-            <p class="bg-[#FFF3F2] text-xs font-medium text-[#FD1515] ms-auto py-1 px-2">
-              Tidak Aktif
+            <p class="text-xs font-semibold ms-auto py-1 px-2" :class="subscription.status === 'Aktif' ? 'bg-[#F6FFF8] text-[#43A047]' : 'bg-[#FFF3F2] text-[#FD1515]' ">
+              {{ subscription.status }}
             </p>
           </div>
 
           <ui-button-primary class="w-full mt-4">
             <nuxt-link class="block w-full h-full" to="https://tempo.co/users/subscriptions" target="_blank">
-              Lihat Benefit Lainnya
+              Lihat Detail Langganan
             </nuxt-link>
           </ui-button-primary>
         </div>

@@ -151,14 +151,13 @@ function isActive(path: string) {
       v-for="link in links"
       :key="link.path"
       external
-      class="py-2.5 active relative text-base font-medium text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE]"
+      class="py-2.5 active relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE]"
       :class="[{ 'router-link-exact-active': isActive(link.path) }]"
       :to="link.path"
-      @click="link.path"
     >
       <span class="flex gap-1" v-html="link.label" />
     </NuxtLink>
-    <NuxtLink class="py-2.5 relative text-base font-medium text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE] cursor-pointer" to="https://api.whatsapp.com/send/?phone=%2B628&text&type=phone_number&app_absent=0" target="_blank">
+    <NuxtLink class="py-2.5 relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE] cursor-pointer" to="https://api.whatsapp.com/send/?phone=%2B628&text&type=phone_number&app_absent=0" target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="19"
@@ -185,7 +184,7 @@ function isActive(path: string) {
       <span>Bantuan Pelanggan</span>
     </NuxtLink>
     <client-only>
-      <NuxtLink class="py-2.5 relative text-base font-medium text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE] cursor-pointer" @click="onLogOut">
+      <NuxtLink class="py-2.5 relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE] cursor-pointer" @click="onLogOut">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="19"

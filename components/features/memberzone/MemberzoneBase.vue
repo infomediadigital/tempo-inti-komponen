@@ -1,16 +1,21 @@
 <script setup lang="ts">
-const viewport = useViewport()
+defineProps<{
+  templateFor: string
+  side: 'right' | 'left'
+  headerLogo: string
+  useInitial: string
+}>()
 
 const sidebarHeader = ref<HTMLElement | null>(null)
 </script>
 
 <template>
-  <ui-memberzone-content class="w-full p-0 bg-[#F5F5F5]" aria-describedby="hello world" :side="viewport.isGreaterOrEquals('lg') ? 'right' : 'left'">
+  <ui-memberzone-content class="w-full p-0 bg-[#F5F5F5]" aria-describedby="hello world" :side="side">
     <ui-memberzone-header ref="sidebarHeader">
       <ui-memberzone-title class="py-3 text-xl bg-white font-semibold border-b border-[#EEEEEE] text-left lg:text-center">
         <nuxt-link to="/" external class="flex items-center">
             <nuxt-img
-                src="/img/teras_logo.png"
+                :src="headerLogo"
                 alt="Logo Teras"
                 format="webp"
                 class="ps-5 w-[140px] block lg:hidden"
@@ -22,6 +27,6 @@ const sidebarHeader = ref<HTMLElement | null>(null)
         Sidebar menu mobile
       </ui-memberzone-description>
     </ui-memberzone-header>
-    <memberzone-section sidebar="trigger" />
+    <memberzone-section :template-for="templateFor" :use-initial="useInitial" sidebar="trigger" />
   </ui-memberzone-content>
 </template>
