@@ -1,4 +1,8 @@
 <script setup lang="ts">
+const props = defineProps<{
+  templateFor: string
+}>()
+
 interface MemberzoneMenuItem {
   path: string
   pathSSO: string
@@ -10,8 +14,9 @@ const activeLink = ref('')
 const links = ref<MemberzoneMenuItem[]>([])
 
 const data = [{
-  path: '/users/user-details',
-  pathSSO: `/users/user-details`,
+  key: 'user-details',
+  path: 'https://tempo.co/users/user-details',
+  pathSSO: `https://tempo.co/users/user-details`,
   label: `
     <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -39,8 +44,9 @@ const data = [{
     <span>Informasi Akun</span>
   `,
 }, {
-  path: '/users/settings',
-  pathSSO: `/users/settings`,
+  key: 'settings',
+  path: 'https://tempo.co/users/settings',
+  pathSSO: `https://tempo.co/users/settings`,
   label: `
     <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -68,8 +74,32 @@ const data = [{
     <span>Pengaturan Akun</span>
   `,
 }, {
-  path: '/users/subscriptions',
-  pathSSO: `/users/subscriptions`,
+  key: 'favorite-articles',
+  path: 'https://tempo.co/users/favorite-articles',
+  pathSSO: `https://tempo.co/users/favorite-articles`,
+  label: `
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="19"
+    height="19"
+    viewBox="0 0 19 19"
+    fill="none"
+    class="mr-2 mt-[2px]"
+    >
+    <path
+      d="M14.8438 16.625L9.49945 13.6562L4.15625 16.625V2.96875C4.15625 2.81128 4.21881 2.66026 4.33016 2.54891C4.44151 2.43756 4.59253 2.375 4.75 2.375H14.25C14.4075 2.375 14.5585 2.43756 14.6698 2.54891C14.7812 2.66026 14.8438 2.81128 14.8438 2.96875V16.625Z"
+      stroke="#212121"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    </svg>
+    <span>Artikel Tersimpan</span>
+  `,
+}, {
+  key: 'subscriptions',
+  path: 'https://tempo.co/users/subscriptions',
+  pathSSO: `https://tempo.co/users/subscriptions`,
   label: `
     <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -96,8 +126,9 @@ const data = [{
     <span>Langganan</span>
   `,
 }, {
-  path: '/users/voucher-instant',
-  pathSSO: `/voucher/instant`,
+  key: 'voucher-instant',
+  path: 'https://tempo.co/users/voucher-instant',
+  pathSSO: `'https://tempo.co/users/voucher/instant`,
   label: `
     <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +156,13 @@ const data = [{
     <span>Kupon Instan</span>
   `,
 }]
-links.value = data
+
+links.value = data.map((item) => ({
+  ...item,
+  isActive: !(props.templateFor === 'teras' && item.key === 'favorite-articles')
+}))
+
+const activeLinks = computed(() => links.value.filter(link => link.isActive))
 
 watch(() => route.path, (newPath: string) => {
   activeLink.value = newPath
@@ -148,7 +185,7 @@ function isActive(path: string) {
 <template>
   <div class="general-menus px-6 mt-6">
     <NuxtLink
-      v-for="link in links"
+      v-for="link in activeLinks"
       :key="link.path"
       external
       class="py-2.5 active relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE]"
@@ -157,7 +194,11 @@ function isActive(path: string) {
     >
       <span class="flex gap-1" v-html="link.label" />
     </NuxtLink>
-    <NuxtLink class="py-2.5 relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE] cursor-pointer" to="https://api.whatsapp.com/send/?phone=%2B628&text&type=phone_number&app_absent=0" target="_blank">
+    <NuxtLink
+      class="py-2.5 relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE] cursor-pointer" 
+      :to="props.templateFor === 'teras' ? 'https://api.whatsapp.com/send/?phone=%2B628&text&type=phone_number&app_absent=0' : 'https://wa.me/628118287002'"
+      target="_blank"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="19"

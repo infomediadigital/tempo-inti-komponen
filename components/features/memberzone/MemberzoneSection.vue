@@ -27,13 +27,36 @@ const userSubscription = [
   }
 ]
 
-const terasIndex = userSubscription.findIndex(
-  (subscription) => subscription.name === 'Teras'
-);
+let orderedSubscriptions = [...userSubscription] // clone to avoid mutation
 
 if (templateFor.toLowerCase() === 'teras') {
-  const [terasItem] = userSubscription.splice(terasIndex, 1);
-  userSubscription.unshift(terasItem);
+  // Move 'Teras' to the front
+  const terasIndex = orderedSubscriptions.findIndex(
+    (subscription) => subscription.name === 'Teras'
+  )
+  if (terasIndex > -1) {
+    const [terasItem] = orderedSubscriptions.splice(terasIndex, 1)
+    orderedSubscriptions.unshift(terasItem)
+  }
+} else if (templateFor.toLowerCase() === 'tempo') {
+  // Move 'Tempo Plus' to the front, then 'Teras', then 'Tempo VIP'
+  orderedSubscriptions.sort((a, b) => {
+    const order = ['Tempo Plus', 'Teras', 'Tempo VIP']
+    return order.indexOf(a.name) - order.indexOf(b.name)
+  })
+}
+
+function getSubscriptionStatus(name: string) {
+  if (name === 'Tempo Plus') {
+    return data.nonvip_subscription ? 'Aktif' : 'Tidak Aktif'
+  }
+  if (name === 'Teras') {
+    return data.nonvip_tts_subscription ? 'Aktif' : 'Tidak Aktif'
+  }
+  if (name === 'Tempo VIP') {
+    return data.vip_subscription ? 'Aktif' : 'Tidak Aktif'
+  }
+  return 'Tidak Aktif'
 }
 
 </script>
@@ -45,7 +68,7 @@ if (templateFor.toLowerCase() === 'teras') {
         <div>
           <figure class="bg-white h-[61px] w-[61px] relative overflow-hidden rounded-full">
             <p class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-semibold text-xl text-[#D61D23]">
-              {{ data.initial }}
+              {{ data.initial.toUpperCase() }}
             </p>
           </figure>
         </div>
@@ -66,7 +89,7 @@ if (templateFor.toLowerCase() === 'teras') {
             Status Langganan
         </p>
         <div class="container bg-white rounded-xl p-5">
-          <div v-for="(subscription, index) in userSubscription" :key="index + subscription.name" class="flex gap-3 items-center pb-4 mb-4 border-b border-[#EEEEEE]">
+          <div v-for="(subscription, index) in orderedSubscriptions" :key="index + subscription.name" class="flex gap-3 items-center pb-4 mb-4 border-b border-[#EEEEEE]">
             <nuxt-img
               :src="subscription.logo"
               :alt="`Logo ${subscription.name} Initial`"
@@ -77,8 +100,11 @@ if (templateFor.toLowerCase() === 'teras') {
             <nuxt-link :to="subscription.link" class="text-sm underline font-semibold text-neutral-1200" external>
               {{ subscription.name }}
             </nuxt-link>
-            <p class="text-xs font-semibold ms-auto py-1 px-2" :class="subscription.status === 'Aktif' ? 'bg-[#F6FFF8] text-[#43A047]' : 'bg-[#FFF3F2] text-[#FD1515]' ">
-              {{ subscription.status }}
+            <p
+              class="text-xs font-semibold ms-auto py-1 px-2"
+              :class="getSubscriptionStatus(subscription.name) === 'Aktif' ? 'bg-[#F6FFF8] text-[#43A047]' : 'bg-[#FFF3F2] text-[#FD1515]'"
+            >
+              {{ getSubscriptionStatus(subscription.name) }}
             </p>
           </div>
 
@@ -89,8 +115,8 @@ if (templateFor.toLowerCase() === 'teras') {
           </ui-button-primary>
         </div>
       </div>
-    <memberzone-menus />
-    <div class="px-5 mt-4">
+    <memberzone-menus :template-for="templateFor" />
+    <div v-if="templateFor === 'teras'" class="px-5 mt-4">
       <social-media-teras :social-media="mock.socialMediaTeras" />
     </div>
     </div>
