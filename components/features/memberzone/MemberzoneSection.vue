@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import mock from '@/data/mock.json'
-const { sidebar, templateFor, useInitial } = defineProps<{
+const { data, sidebar, templateFor } = defineProps<{
+  data: any
   sidebar?: string
   templateFor: string
-  useInitial: string
 }>()
 
 const userSubscription = [
@@ -45,19 +45,19 @@ if (templateFor.toLowerCase() === 'teras') {
         <div>
           <figure class="bg-white h-[61px] w-[61px] relative overflow-hidden rounded-full">
             <p class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-semibold text-xl text-[#D61D23]">
-              {{ useInitial }}
+              {{ data.initial }}
             </p>
           </figure>
         </div>
         <div>
           <p class="text-lg font-semibold text-neutral-1100 leading-6 line-clamp-1 mb-1">
-            Fikry
+            {{ data.fullname }}
           </p>
           <p class="text-sm font-semibold text-[#757575] leading-4 line-clamp-1 mb-1 lg:min-w-52">
-            fikry@tempo.co.id
+            {{ data.email }}
           </p>
           <p class="text-sm font-normal text-[#757575] leading-4">
-            Tempo ID : 2137891
+            Tempo ID : {{ data.id }}
           </p>
         </div>
       </div>

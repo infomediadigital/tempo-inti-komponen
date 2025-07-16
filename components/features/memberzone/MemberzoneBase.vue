@@ -1,9 +1,9 @@
 <script setup lang="ts">
 defineProps<{
+  data: any
   templateFor: string
   side: 'right' | 'left'
   headerLogo: string
-  useInitial: string
 }>()
 
 const sidebarHeader = ref<HTMLElement | null>(null)
@@ -27,6 +27,6 @@ const sidebarHeader = ref<HTMLElement | null>(null)
         Sidebar menu mobile
       </ui-memberzone-description>
     </ui-memberzone-header>
-    <memberzone-section :template-for="templateFor" :use-initial="useInitial" sidebar="trigger" />
+    <memberzone-section :data="data" :template-for="templateFor" sidebar="trigger" />
   </ui-memberzone-content>
 </template>

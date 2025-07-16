@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  useInitial?: string
+  data: any
   templateFor: string
   side: 'right' | 'left'
   headerLogo: string
@@ -13,11 +13,11 @@ defineProps<{
       <button type="button" class="text-black cursor-pointer">
         <figure class="bg-white w-9 h-9 relative overflow-hidden rounded-full border border-gray-600">
           <p class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-medium text-sm text-gray-600">
-            {{ useInitial || 'X' }}
+            {{ data.first_letter_of_name }}
           </p>
         </figure>
       </button>
     </ui-memberzone-trigger>
-    <memberzone-base :template-for="templateFor" :side="side" :header-logo="headerLogo" :use-initial="useInitial" />
+    <memberzone-base :data="data" :template-for="templateFor" :side="side" :header-logo="headerLogo" />
   </ui-memberzone-root>
 </template>
