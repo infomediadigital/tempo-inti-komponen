@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   templateFor: string
+  isSidebar?: boolean
 }>()
 
 interface MemberzoneMenuItem {
@@ -178,24 +179,26 @@ function onLogOut() {
 }
 
 function isActive(path: string) {
-  return activeLink.value === path
+  const formattedPath = path.replace('https://tempo.co', '')
+  return activeLink.value === formattedPath
 }
 </script>
 
 <template>
-  <div class="general-menus px-6 mt-6">
+  <div class="general-menus px-6 mt-6" :class="{ '!px-0': isSidebar }">
     <NuxtLink
       v-for="link in activeLinks"
       :key="link.path"
       external
       class="py-2.5 active relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE]"
-      :class="[{ 'router-link-exact-active': isActive(link.path) }]"
+      :class="[{ 'router-link-exact-active': isActive(link.path) }, { 'px-6': isSidebar }]"
       :to="link.path"
     >
       <span class="flex gap-1" v-html="link.label" />
     </NuxtLink>
     <NuxtLink
       class="py-2.5 relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE] cursor-pointer" 
+      :class="{ 'px-6 !border-[#212121]': isSidebar }"
       :to="props.templateFor === 'teras' ? 'https://api.whatsapp.com/send/?phone=%2B628&text&type=phone_number&app_absent=0' : 'https://wa.me/628118287002'"
       target="_blank"
     >
@@ -225,7 +228,7 @@ function isActive(path: string) {
       <span>Bantuan Pelanggan</span>
     </NuxtLink>
     <client-only>
-      <NuxtLink class="py-2.5 relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE] cursor-pointer" @click="onLogOut">
+      <NuxtLink class="py-2.5 relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE] cursor-pointer" :class="{ 'px-6': isSidebar }" @click="onLogOut">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="19"
@@ -262,11 +265,13 @@ function isActive(path: string) {
   </div>
 </template>
 
-<style scoped>
+<style>
 .general-menus .router-link-exact-active {
+  font-weight: 700;
   color: #d61d23;
 }
 .general-menus .router-link-exact-active svg path {
   stroke: #d61d23;
+  stroke-width: 2;
 }
 </style>

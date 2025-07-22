@@ -32,5 +32,8 @@ const dummyUser = {
       Hello world
     </h1>
     <memberzone-plugin :data="dummyUser" template-for="teras" side="right" />
+    <div class="w-2/6 border border-red-500">
+      <memberzone-section :data="dummyUser" template-for="tempo" :is-sidebar="true" />
+    </div>
   </div>
 </template>

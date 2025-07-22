@@ -4,6 +4,7 @@ const { data, sidebar, templateFor } = defineProps<{
   data: any
   sidebar?: string
   templateFor: string
+  isSidebar?: boolean
 }>()
 
 const userSubscription = [
@@ -84,7 +85,7 @@ function getSubscriptionStatus(name: string) {
           </p>
         </div>
       </div>
-      <div class="px-5">
+      <div v-if="!isSidebar" class="px-5">
         <p class="text-lg font-bold mb-4">
             Status Langganan
         </p>
@@ -115,7 +116,7 @@ function getSubscriptionStatus(name: string) {
           </ui-button-primary>
         </div>
       </div>
-    <memberzone-menus :template-for="templateFor" />
+    <memberzone-menus :template-for="templateFor" :is-sidebar="isSidebar" />
     <div v-if="templateFor === 'teras'" class="px-5 mt-4">
       <social-media-teras :social-media="mock.socialMediaTeras" />
     </div>
