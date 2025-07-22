@@ -16,7 +16,10 @@ const dummyUser = {
   "vip_subscription": false,
   "vip_period_subscription_start": "",
   "vip_period_subscription_end": "",
-  "content_access": [],
+  "content_access": [
+    "tempo_plus",
+    "teras_plus",
+  ],
   "initial": "An",
   "first_letter_of_name": "A"
 }
@@ -28,6 +31,6 @@ const dummyUser = {
     <h1 class="text-3xl font-bold underline">
       Hello world
     </h1>
-    <memberzone-plugin :data="dummyUser" template-for="tempo" side="right" header-logo="/img/teras_logo.png"/>
+    <memberzone-plugin :data="dummyUser" template-for="teras" side="right" />
   </div>
 </template>

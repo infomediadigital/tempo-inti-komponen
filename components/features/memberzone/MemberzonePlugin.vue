@@ -3,7 +3,6 @@ defineProps<{
   data: any
   templateFor: string
   side: 'right' | 'left'
-  headerLogo: string
 }>()
 </script>
 
@@ -18,6 +17,6 @@ defineProps<{
         </figure>
       </button>
     </ui-memberzone-trigger>
-    <memberzone-base :data="data" :template-for="templateFor" :side="side" :header-logo="headerLogo" />
+    <memberzone-base :data="data" :template-for="templateFor" :side="side" />
   </ui-memberzone-root>
 </template>

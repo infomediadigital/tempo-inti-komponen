@@ -47,16 +47,16 @@ if (templateFor.toLowerCase() === 'teras') {
 }
 
 function getSubscriptionStatus(name: string) {
-  if (name === 'Tempo Plus') {
-    return data.nonvip_subscription ? 'Aktif' : 'Tidak Aktif'
+  // Map subscription names to content_access keys
+  console.log('data', data)
+  const accessMap: Record<string, string> = {
+    'Tempo Plus': 'tempo_plus',
+    'Teras': 'teras_plus',
+    'Tempo VIP': 'tempo_vip',
   }
-  if (name === 'Teras') {
-    return data.nonvip_tts_subscription ? 'Aktif' : 'Tidak Aktif'
-  }
-  if (name === 'Tempo VIP') {
-    return data.vip_subscription ? 'Aktif' : 'Tidak Aktif'
-  }
-  return 'Tidak Aktif'
+  const key = accessMap[name]
+  if (!key) return 'Tidak Aktif'
+  return data.content_access && data.content_access.includes(key) ? 'Aktif' : 'Tidak Aktif'
 }
 
 </script>
