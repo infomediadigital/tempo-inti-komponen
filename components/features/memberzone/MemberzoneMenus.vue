@@ -2,6 +2,7 @@
 const props = defineProps<{
   templateFor: string
   isSidebar?: boolean
+  ssoUrl: string
 }>()
 
 interface MemberzoneMenuItem {
@@ -170,7 +171,7 @@ watch(() => route.path, (newPath: string) => {
 }, { immediate: true })
 
 function onLogOut() {
-  navigateTo(`/sso/sso/logout?ref=${location.origin + route.fullPath}`, {
+  navigateTo(`${props.ssoUrl}/sso/sso/logout?ref=${location.origin + route.fullPath}`, {
     external: true,
     open: {
       target: '_blank',

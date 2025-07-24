@@ -3,6 +3,7 @@ defineProps<{
   data: any
   templateFor: string
   side: 'right' | 'left'
+  ssoUrl: string
 }>()
 
 const sidebarHeader = ref<HTMLElement | null>(null)
@@ -18,6 +19,6 @@ const sidebarHeader = ref<HTMLElement | null>(null)
         Sidebar menu mobile
       </ui-memberzone-description>
     </ui-memberzone-header>
-    <memberzone-section :data="data" :template-for="templateFor" sidebar="trigger" />
+    <memberzone-section :data="data" :template-for="templateFor" sidebar="trigger" :sso-url="ssoUrl" />
   </ui-memberzone-content>
 </template>

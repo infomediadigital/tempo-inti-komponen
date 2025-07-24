@@ -3,6 +3,7 @@ defineProps<{
   data: any
   templateFor: string
   side: 'right' | 'left'
+  ssoUrl: string
 }>()
 </script>
 
@@ -17,6 +18,6 @@ defineProps<{
         </figure>
       </button>
     </ui-memberzone-trigger>
-    <memberzone-base :data="data" :template-for="templateFor" :side="side" />
+    <memberzone-base :data="data" :template-for="templateFor" :side="side" :sso-url="ssoUrl" />
   </ui-memberzone-root>
 </template>
