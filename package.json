@@ -1,7 +1,7 @@
 {
   "name": "@tech-of-tempo/tempo-inti-komponen",
   "description": "A reusable Nuxt 3 UI kit with components, layouts, and utilities",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "author": "Fikry",
   "license": "MIT",
   "private": false,

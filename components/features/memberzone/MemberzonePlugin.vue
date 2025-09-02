@@ -11,7 +11,7 @@ defineProps<{
   <ui-memberzone-root>
     <ui-memberzone-trigger as-child>
       <button type="button" class="text-black cursor-pointer">
-        <figure class="bg-white w-9 h-9 relative overflow-hidden rounded-full !border !border-[#212121]">
+        <figure class="bg-white w-9 h-9 relative overflow-hidden rounded-full !border" style="border-color: #212121 !important">
           <p class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-medium text-sm text-[#212121]">
             {{ data.first_letter_of_name }}
           </p>
