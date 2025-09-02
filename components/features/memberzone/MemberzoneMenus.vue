@@ -194,6 +194,7 @@ function isActive(path: string) {
       class="py-2.5 active relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE]"
       :class="[{ 'router-link-exact-active': isActive(link.path) }, { 'px-6': isSidebar }]"
       :to="link.path"
+      target="_blank"
     >
       <span class="flex gap-1" v-html="link.label" />
     </NuxtLink>

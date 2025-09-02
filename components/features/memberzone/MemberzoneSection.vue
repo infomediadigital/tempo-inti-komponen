@@ -50,7 +50,6 @@ if (templateFor.toLowerCase() === 'teras') {
 
 function getSubscriptionStatus(name: string) {
   // Map subscription names to content_access keys
-  console.log('data', data)
   const accessMap: Record<string, string> = {
     'Tempo Plus': 'tempo_plus',
     'Teras': 'teras_plus',
@@ -99,7 +98,7 @@ function getSubscriptionStatus(name: string) {
               width="19px"
               height="19px"
             />
-            <nuxt-link :to="subscription.link" class="text-sm underline font-semibold text-neutral-1200" external>
+            <nuxt-link :to="subscription.link" target="_blank" class="text-sm underline font-semibold text-neutral-1200" external>
               {{ subscription.name }}
             </nuxt-link>
             <p
@@ -111,7 +110,7 @@ function getSubscriptionStatus(name: string) {
           </div>
 
           <ui-button-primary class="w-full mt-4">
-            <nuxt-link class="block w-full h-full" to="https://tempo.co/users/subscriptions" target="_blank">
+            <nuxt-link class="block w-full h-full" to="https://tempo.co/users/subscriptions" target="_blank" external>
               Lihat Detail Langganan
             </nuxt-link>
           </ui-button-primary>
