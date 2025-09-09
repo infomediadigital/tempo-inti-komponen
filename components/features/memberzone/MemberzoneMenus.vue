@@ -201,7 +201,7 @@ function isActive(path: string) {
     <NuxtLink
       class="py-2.5 relative text-base font-normal text-neutral-1100 flex flex-row gap-2 items-center border-b border-[#EEEEEE] cursor-pointer" 
       :class="{ 'px-6 !border-[#212121]': isSidebar }"
-      :to="props.templateFor === 'teras' ? 'https://api.whatsapp.com/send/?phone=%2B628&text&type=phone_number&app_absent=0' : 'https://wa.me/628118287002'"
+      :to="props.templateFor === 'teras' ? 'mailto:cs@teras.id' : 'https://wa.me/628118287002'"
       target="_blank"
     >
       <svg
