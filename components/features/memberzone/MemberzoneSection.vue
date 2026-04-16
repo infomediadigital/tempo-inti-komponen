@@ -49,12 +49,17 @@ if (templateFor.toLowerCase() === 'teras') {
 }
 
 function getSubscriptionStatus(name: string) {
+  if (name === 'Tempo VIP') {
+    const vipStatus = (data as any)?.vip_subscription ?? (data as any)?.value?.vip_subscription
+    return vipStatus ? 'Aktif' : 'Tidak Aktif'
+  }
+  
   // Map subscription names to content_access keys
   const accessMap: Record<string, string> = {
     'Tempo Plus': 'tempo_plus',
     'Teras': 'teras_plus',
-    'Tempo VIP': 'tempo_vip',
   }
+
   const key = accessMap[name]
   if (!key) return 'Tidak Aktif'
   return data.content_access && data.content_access.includes(key) ? 'Aktif' : 'Tidak Aktif'
