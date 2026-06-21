@@ -1,92 +1,28 @@
-import js from "@eslint/js"
-import globals from "globals"
-import tseslint from "typescript-eslint"
-import pluginVue from "eslint-plugin-vue"
-import pluginNuxt from "eslint-plugin-nuxt"
-import { defineConfig } from "eslint/config"
+import js from '@eslint/js'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import storybook from 'eslint-plugin-storybook'
 
-export default defineConfig([
+export default tseslint.config(
+  { ignores: ['dist', 'storybook-static', 'node_modules'] },
   {
-    ignores: [
-      "node_modules",
-      ".nuxt",
-      ".output",
-      "dist",
-      "build",
-      ".github/**",
-      ".aws/**",
-      "k8s-manifests/**",
-      "k8s-manifest/**",
-    ],
-  },
-
-  {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts,vue}"],
-    plugins: {
-      js,
-    },
-    extends: ["js/recommended"],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        // Nuxt & Vue composables
-        defineNuxtPlugin: "readonly",
-        defineNuxtRouteMiddleware: "readonly",
-        definePageMeta: "readonly",
-        navigateTo: "readonly",
-
-        useRoute: "readonly",
-        useRouter: "readonly",
-        useRuntimeConfig: "readonly",
-        useState: "readonly",
-        useAsyncData: "readonly",
-        useFetch: "readonly",
-        useHead: "readonly",
-        useSeoMeta: "readonly",
-
-        // Vue core
-        ref: "readonly",
-        reactive: "readonly",
-        computed: "readonly",
-        watch: "readonly",
-        onMounted: "readonly",
-        onBeforeUnmount: "readonly",
-        defineComponent: "readonly",
-        nextTick: "readonly",
-
-        // Pinia store (atau store custom)
-        useAuthStore: "readonly",
-        useViewport: "readonly",
-      },
+      ecmaVersion: 2020,
+      globals: globals.browser,
     },
-  },
-
-  // TypeScript recommended rules
-  ...tseslint.configs.recommended,
-
-  // Vue 3 essential rules
-  pluginVue.configs["flat/essential"],
-
-  // Nuxt plugin rules (recommended)
-  {
     plugins: {
-      nuxt: pluginNuxt,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
     },
     rules: {
-      ...pluginNuxt.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
-
-  // Parser settings for Vue SFCs with TypeScript
-  {
-    files: ["**/*.vue"],
-    languageOptions: {
-      parserOptions: {
-        parser: tseslint.parser,
-        ecmaVersion: "latest",
-        sourceType: "module",
-      },
-    },
-  },
-])
+  ...storybook.configs['flat/recommended'],
+)

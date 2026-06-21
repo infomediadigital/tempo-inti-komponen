@@ -1,10 +1,6 @@
-# Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
+# Build outputs
 dist
+storybook-static
 
 # Node dependencies
 node_modules
@@ -12,11 +8,13 @@ node_modules
 # Logs
 logs
 *.log
+npm-debug.log*
 
 # Misc
 .DS_Store
 .fleet
 .idea
+*.tgz
 
 # Local env files
 .env
