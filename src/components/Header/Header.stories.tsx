@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Crown, LogIn } from 'lucide-react'
 import { Header } from './Header'
 import { ActionButton } from '../ActionButton'

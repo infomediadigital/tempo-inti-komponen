@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { MemberzonePanel } from './MemberzonePanel'
 import type { MemberzoneUser } from './types'
 
