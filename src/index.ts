@@ -17,6 +17,7 @@ export * from './components/Footer'
 export * from './components/SearchMenu'
 export * from './components/Sidebar'
 export * from './components/Memberzone'
+export * from './components/BottomNavbar'
 
 // Icons
 export * from './icons'

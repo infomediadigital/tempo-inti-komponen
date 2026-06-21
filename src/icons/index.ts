@@ -11,3 +11,4 @@ export {
 } from './menu'
 export { MenuSearchIcon, UserCircleIcon } from './header'
 export { MagnifyingGlassIcon } from './search'
+export { HomeIcon, HarianIcon, MingguanIcon } from './navbar'
