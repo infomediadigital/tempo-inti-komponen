@@ -1,4 +1,4 @@
-# @tempo/antarmuka
+# @tempomedia/antarmuka
 
 Tempo's shared global UI component library for React products.
 
@@ -9,7 +9,7 @@ Built with **React + TypeScript + Vite (Library Mode) + Tailwind CSS v4 + Storyb
 ## Installation
 
 ```bash
-npm install @tempo/antarmuka
+npm install @tempomedia/antarmuka
 ```
 
 `react` and `react-dom` (>= 18) are peer dependencies.
@@ -20,11 +20,11 @@ Import the stylesheet once at your app's entry point, then use components anywhe
 
 ```tsx
 // app entry (e.g. main.tsx)
-import '@tempo/antarmuka/styles.css'
+import '@tempomedia/antarmuka/styles.css'
 ```
 
 ```tsx
-import { Button, Input, MemberzonePanel } from '@tempo/antarmuka'
+import { Button, Input, MemberzonePanel } from '@tempomedia/antarmuka'
 
 export default function Page() {
   return (
@@ -41,7 +41,7 @@ export default function Page() {
 ```tsx
 import { MemberzonePanel } from '@tempo/antarmuka'
 
-<MemberzonePanel
+;<MemberzonePanel
   user={{
     id: 9896432,
     fullname: 'Anjar Pratama',
@@ -51,7 +51,7 @@ import { MemberzonePanel } from '@tempo/antarmuka'
     vipSubscription: false,
     contentAccess: ['tempo_plus', 'teras_plus'],
   }}
-  templateFor="tempo"        // or "teras"
+  templateFor="tempo" // or "teras"
   ssoUrl="https://sso.tempo.co"
   side="right"
   onLogout={() => signOut()} // optional; falls back to an SSO logout link
@@ -62,11 +62,11 @@ The Memberzone is framework-agnostic: it has no router dependency. Active menu h
 
 ## Components
 
-| Group     | Components                                                       |
-| --------- | ---------------------------------------------------------------- |
-| Form      | `Button`, `Input`, `Textarea`                                    |
-| Display   | `Badge`, `Card`, `Alert`, `Spinner`, `Avatar`                    |
-| Feature   | `MemberzonePanel` + `Memberzone.*` primitives, `SocialMedia`     |
+| Group   | Components                                                   |
+| ------- | ------------------------------------------------------------ |
+| Form    | `Button`, `Input`, `Textarea`                                |
+| Display | `Badge`, `Card`, `Alert`, `Spinner`, `Avatar`                |
+| Feature | `MemberzonePanel` + `Memberzone.*` primitives, `SocialMedia` |
 
 Design tokens (`colors`, `typography`, `spacing`, `radius`, `shadows`, `zIndex`, `breakpoints`), the `cn` class-merge helper, and all icons are also exported.
 
