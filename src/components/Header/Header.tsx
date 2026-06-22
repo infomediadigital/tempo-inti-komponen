@@ -93,12 +93,12 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(
         </div>
 
         {/* Desktop bar */}
-        <div className="mx-auto hidden h-full max-w-[1366px] items-center justify-between gap-6 px-6 md:flex">
+        <div className="mx-auto hidden h-full max-w-[1366px] items-center justify-between gap-6 px-34 md:flex">
           <div className="flex h-8 shrink-0 items-center gap-2">{logoNode}</div>
           {children && (
             <nav className="flex flex-1 items-center justify-center gap-6">{children}</nav>
           )}
-          {actions && <div className="flex shrink-0 items-center gap-3">{actions}</div>}
+          {actions && <div className="flex h-8 shrink-0 items-center gap-4">{actions}</div>}
         </div>
       </header>
     )

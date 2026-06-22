@@ -184,13 +184,13 @@ export interface FooterProps extends React.HTMLAttributes<HTMLElement> {
   variant?: FooterVariant
 }
 
-export function Footer({ className, variant = 'dark', ...props }: FooterProps) {
+export function Footer({ className, variant = 'light', ...props }: FooterProps) {
   const year = currentYearJakarta()
   const scheme = SCHEMES[variant]
 
-  // 18px bold uppercase -0.2px tracking, 16px bottom margin (Figma spec)
+  // 18px bold, line-height 100%, letter-spacing 0% (Figma spec)
   const headingCls = cn(
-    'mb-4 text-[18px] font-bold uppercase leading-none tracking-[-0.2px]',
+    'mb-4 text-[18px] font-bold leading-none',
     'text-center md:text-left',
     scheme.heading,
   )
@@ -200,8 +200,9 @@ export function Footer({ className, variant = 'dark', ...props }: FooterProps) {
 
   return (
     <footer role="contentinfo" className={cn('w-full', scheme.root, className)} {...props}>
-      {/* Inner container — mobile adds 32px vertical padding */}
-      <div className="mx-auto max-w-[1366px] px-5 max-md:py-8">
+      {/* Desktop: max-w-1366, px-148, py-32, gap-24 between sections.
+          Mobile: px-5, py-32 (sections own their spacing). */}
+      <div className="mx-auto max-w-[1366px] px-5 max-md:py-8 md:flex md:flex-col md:gap-6 md:px-[148px] md:py-8">
 
         {/* Mobile-only: trust badges centered at the very top */}
         <TrustBadges className="justify-center md:hidden" />
@@ -209,16 +210,18 @@ export function Footer({ className, variant = 'dark', ...props }: FooterProps) {
         {/* ── Top: quote · social · apps ──────────────── */}
         {/* Mobile: stacked + centered, 28px gap, 32px vertical padding
             Desktop: row, 64px gap, 32px vertical padding, left-aligned */}
-        <div className="flex flex-col items-center gap-7 py-8 text-center md:flex-row md:items-start md:gap-16 md:text-left">
+        <div className="flex flex-col items-center gap-7 py-8 text-center md:flex-row md:items-start md:gap-16 md:py-0 md:text-left">
 
           {/* Editorial quote — hidden on mobile */}
-          <p className={cn('hidden flex-1 text-base italic leading-[1.6] md:block', scheme.quote)}>
+          {/* font: Roboto 400 Italic 16px / 156% / -1% letter-spacing */}
+          <p className={cn('hidden flex-1 text-base font-normal italic leading-[156%] tracking-[-0.01em] md:block', scheme.quote)}>
             Asas jurnalisme kami bukan jurnalisme yang memihak satu golongan. Kami percaya
             kebajikan, juga ketidakbajikan, tidak menjadi monopoli satu pihak. Kami percaya tugas
             pers bukan menyebarkan prasangka, justru melenyapkannya, bukan membenihkan kebencian,
             melainkan mengkomunikasikan saling pengertian. Jurnalisme kami bukan jurnalisme untuk
             memaki atau mencibirkan bibir, juga tidak dimaksudkan untuk menjilat atau menghamba ~{' '}
-            <span className={cn('text-base font-bold italic', scheme.quoteDate)}>6 Maret 1971</span>
+            {/* font: Roboto 700 Italic 16px / 156% / -1% letter-spacing */}
+            <span className={cn('text-base font-bold italic leading-[156%] tracking-[-0.01em]', scheme.quoteDate)}>6 Maret 1971</span>
           </p>
 
           {/* Media Sosial — 122×121px fixed column on desktop */}
@@ -240,11 +243,11 @@ export function Footer({ className, variant = 'dark', ...props }: FooterProps) {
         {/* ── Mid: Jaringan Media · Informasi ─────────── */}
         {/* Desktop: 642px network + 48px gap + 380px info
             Mobile: only Informasi shown */}
-        <div className="flex flex-col gap-8 py-8 pb-10 md:flex-row md:items-start md:gap-12">
+        <div className="flex flex-col gap-8 py-8 pb-10 md:flex-row md:items-start md:gap-12 md:py-0">
 
           {/* Jaringan Media — hidden on mobile */}
-          <div className="hidden md:flex md:w-[642px] md:flex-none md:flex-col md:gap-6">
-            <p className={cn('text-[18px] font-bold uppercase leading-none tracking-[-0.2px]', scheme.heading)}>
+          <div className="hidden md:flex md:w-[642px] md:flex-none md:flex-col md:gap-8">
+            <p className={cn('text-[18px] font-bold leading-none', scheme.heading)}>
               Jaringan Media
             </p>
 
@@ -268,7 +271,7 @@ export function Footer({ className, variant = 'dark', ...props }: FooterProps) {
             </div>
 
             <div>
-              <p className={cn('mb-4 text-[18px] font-bold uppercase leading-none tracking-[-0.2px]', scheme.heading)}>
+              <p className={cn('mb-4 text-[18px] font-bold leading-none', scheme.heading)}>
                 Trustworthy News
               </p>
               <TrustBadges />
@@ -278,7 +281,7 @@ export function Footer({ className, variant = 'dark', ...props }: FooterProps) {
           {/* Informasi — full-width on mobile, 380px on desktop */}
           <div className="w-full md:flex md:w-[380px] md:flex-shrink-0 md:flex-col md:gap-6">
             {/* Title hidden on mobile */}
-            <p className={cn('hidden text-[18px] font-bold uppercase leading-none tracking-[-0.2px] md:block', scheme.heading)}>
+            <p className={cn('hidden text-[18px] font-bold leading-none md:block', scheme.heading)}>
               Informasi
             </p>
 
