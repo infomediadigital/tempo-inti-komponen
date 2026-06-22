@@ -1,7 +1,7 @@
 {
   "name": "@tempomedia/antarmuka",
   "description": "Tempo's shared global UI component library for React products",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
   "private": false,
   "type": "module",
