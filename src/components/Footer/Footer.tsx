@@ -69,7 +69,6 @@ const SOCIAL: { label: string; url: string; icon: string }[] = [
   { label: 'Threads', url: 'https://www.threads.net/@tempodotco', icon: threadsIcon },
 ]
 
-/** Current year in Jakarta time (GMT+7) — stable across SSR and client. */
 function currentYearJakarta(): string {
   return new Intl.DateTimeFormat('en-US', {
     timeZone: 'Asia/Jakarta',
@@ -77,7 +76,6 @@ function currentYearJakarta(): string {
   }).format(new Date())
 }
 
-/** Coordinated color scheme for the two footer variants. */
 type FooterVariant = 'dark' | 'light'
 
 interface FooterScheme {
@@ -88,20 +86,18 @@ interface FooterScheme {
   quoteDate: string
   divider: string
   bottom: string
-  /** Extra class applied to social icons (they ship white; invert for light bg). */
   socialImg: string
 }
 
 const SCHEMES: Record<FooterVariant, FooterScheme> = {
-  // Default: background var(--Neutral-1200, #212121).
   dark: {
-    root: 'bg-neutral-1200 text-white/70',
+    root: 'bg-[#212121] text-white',
     heading: 'text-white',
-    link: 'text-white/70 hover:text-white',
-    quote: 'text-white/70',
+    link: 'text-white hover:underline',
+    quote: 'text-white',
     quoteDate: 'text-white',
-    divider: 'border-white/15',
-    bottom: 'border-t border-white/10 text-white/50',
+    divider: 'border-[#424242]',
+    bottom: 'border-t border-[#424242] text-white',
     socialImg: '',
   },
   light: {
@@ -112,7 +108,6 @@ const SCHEMES: Record<FooterVariant, FooterScheme> = {
     quoteDate: 'text-neutral-900',
     divider: 'border-neutral-200',
     bottom: 'border-t border-neutral-200 bg-neutral-50 text-neutral-500',
-    // Social icons are white; render them black on the light background.
     socialImg: 'brightness-0',
   },
 }
@@ -120,17 +115,21 @@ const SCHEMES: Record<FooterVariant, FooterScheme> = {
 function TrustBadges({ className }: { className?: string }) {
   return (
     <div className={cn('flex items-center gap-4', className)}>
-      <img src={TRUST_AMSI} alt="AMSI Badge" loading="lazy" className="h-12 w-auto" />
+      {/* AMSI badge: 57px tall per spec */}
+      <img src={TRUST_AMSI} alt="AMSI Badge" loading="lazy" className="h-[57px] w-auto" />
       <a href={IFCN_URL} target="_blank" rel="noopener noreferrer" title="IFCN signatory">
+        {/* IFCN badge: 48px tall per spec */}
         <img src={TRUST_IFCN} alt="IFCN Signatory Badge" loading="lazy" className="h-12 w-auto" />
       </a>
     </div>
   )
 }
 
-function SocialRow({ imgClass }: { imgClass: string }) {
+function SocialIcons({ imgClass }: { imgClass?: string }) {
   return (
-    <div className="flex items-center gap-3">
+    // Mobile: single row, centered, no wrap.
+    // Desktop: wraps inside 122px column (2 rows of 3+2 icons at 32px + 13px gap).
+    <div className="flex flex-nowrap justify-center gap-[13px] md:w-[122px] md:flex-wrap md:justify-start">
       {SOCIAL.map((s) => (
         <a
           key={s.label}
@@ -138,15 +137,15 @@ function SocialRow({ imgClass }: { imgClass: string }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={s.label}
-          className="transition-opacity hover:opacity-70"
+          className="inline-flex h-8 w-8 items-center justify-center transition-opacity hover:opacity-75"
         >
           <img
             src={s.icon}
             alt=""
             aria-hidden="true"
-            width={24}
-            height={24}
-            className={imgClass || undefined}
+            width={32}
+            height={32}
+            className={cn('block h-8 w-8', imgClass)}
           />
         </a>
       ))}
@@ -156,11 +155,13 @@ function SocialRow({ imgClass }: { imgClass: string }) {
 
 function AppButtons() {
   return (
-    <div className="flex flex-col gap-2">
+    // Mobile: side-by-side, centered. Desktop: stacked column.
+    <div className="flex flex-row justify-center gap-3 md:flex-col md:justify-start">
       <a
         href="https://apps.apple.com/id/app/tempo/id1380254415"
         target="_blank"
         rel="noopener noreferrer"
+        className="inline-block leading-none"
       >
         <img src={appStoreImg} alt="Download on the App Store" className="h-10 w-auto" />
       </a>
@@ -168,6 +169,7 @@ function AppButtons() {
         href="https://play.google.com/store/apps/details?id=co.tempo.media"
         target="_blank"
         rel="noopener noreferrer"
+        className="inline-block leading-none"
       >
         <img src={playStoreImg} alt="Get it on Google Play" className="h-10 w-auto" />
       </a>
@@ -177,69 +179,86 @@ function AppButtons() {
 
 export interface FooterProps extends React.HTMLAttributes<HTMLElement> {
   /**
-   * Color scheme. `dark` (default) uses a #212121 background; `light` uses white.
-   * For a custom background, keep a variant for contrast and override via
-   * `className` (e.g. `<Footer className="bg-[#1a1a1a]" />`).
+   * `dark` (default) uses #212121 background; `light` uses white.
    */
   variant?: FooterVariant
 }
 
-/**
- * Desktop site footer for Tempo products.
- *
- * Contains the editorial quote, social links, app-download badges, the Tempo
- * media network, informational links, trust badges, and a copyright bar.
- * Mobile uses a separate footer component.
- */
 export function Footer({ className, variant = 'dark', ...props }: FooterProps) {
   const year = currentYearJakarta()
   const scheme = SCHEMES[variant]
-  const headingClass = cn('mb-3 text-sm font-bold', scheme.heading)
-  const linkClass = cn('block py-1 text-sm transition-colors', scheme.link)
+
+  // 18px bold uppercase -0.2px tracking, 16px bottom margin (Figma spec)
+  const headingCls = cn(
+    'mb-4 text-[18px] font-bold uppercase leading-none tracking-[-0.2px]',
+    'text-center md:text-left',
+    scheme.heading,
+  )
+
+  // 16px regular, line-height 1 (Figma spec)
+  const linkCls = cn('block text-base font-normal leading-none', scheme.link)
 
   return (
     <footer role="contentinfo" className={cn('w-full', scheme.root, className)} {...props}>
-      <div className="mx-auto max-w-[1366px] px-10 py-10">
-        {/* Top: quote · social · app downloads */}
-        <div className="grid grid-cols-[minmax(0,1fr)_auto_auto] gap-10">
-          <blockquote
-            className={cn('max-w-2xl font-serif text-sm italic leading-relaxed', scheme.quote)}
-          >
-            Asas jurnalisme kami bukan jurnalisme yang memihak satu golongan. Kami percaya kebajikan,
-            juga ketidakbajikan, tidak menjadi monopoli satu pihak. Kami percaya tugas pers bukan
-            menyebarkan prasangka, justru melenyapkannya, bukan membenihkan kebencian, melainkan
-            mengkomunikasikan saling pengertian. Jurnalisme kami bukan jurnalisme untuk memaki atau
-            mencibirkan bibir, juga tidak dimaksudkan untuk menjilat atau menghamba ~{' '}
-            <span className={cn('font-semibold not-italic', scheme.quoteDate)}>6 Maret 1971</span>
-          </blockquote>
+      {/* Inner container — mobile adds 32px vertical padding */}
+      <div className="mx-auto max-w-[1366px] px-5 max-md:py-8">
 
-          <div>
-            <p className={headingClass}>Media Sosial</p>
-            <SocialRow imgClass={scheme.socialImg} />
+        {/* Mobile-only: trust badges centered at the very top */}
+        <TrustBadges className="justify-center md:hidden" />
+
+        {/* ── Top: quote · social · apps ──────────────── */}
+        {/* Mobile: stacked + centered, 28px gap, 32px vertical padding
+            Desktop: row, 64px gap, 32px vertical padding, left-aligned */}
+        <div className="flex flex-col items-center gap-7 py-8 text-center md:flex-row md:items-start md:gap-16 md:text-left">
+
+          {/* Editorial quote — hidden on mobile */}
+          <p className={cn('hidden flex-1 text-base italic leading-[1.6] md:block', scheme.quote)}>
+            Asas jurnalisme kami bukan jurnalisme yang memihak satu golongan. Kami percaya
+            kebajikan, juga ketidakbajikan, tidak menjadi monopoli satu pihak. Kami percaya tugas
+            pers bukan menyebarkan prasangka, justru melenyapkannya, bukan membenihkan kebencian,
+            melainkan mengkomunikasikan saling pengertian. Jurnalisme kami bukan jurnalisme untuk
+            memaki atau mencibirkan bibir, juga tidak dimaksudkan untuk menjilat atau menghamba ~{' '}
+            <span className={cn('text-base font-bold italic', scheme.quoteDate)}>6 Maret 1971</span>
+          </p>
+
+          {/* Media Sosial — 122×121px fixed column on desktop */}
+          <div className="w-full flex-shrink-0 md:h-[121px] md:w-[122px]">
+            <p className={headingCls}>Media Sosial</p>
+            <SocialIcons imgClass={scheme.socialImg} />
           </div>
 
-          <div>
-            <p className={headingClass}>Unduh Aplikasi Tempo</p>
+          {/* Unduh Aplikasi Tempo */}
+          <div className="w-full flex-shrink-0 md:w-auto">
+            <p className={headingCls}>Unduh Aplikasi Tempo</p>
             <AppButtons />
           </div>
         </div>
 
-        <hr className={cn('my-8', scheme.divider)} />
+        {/* ── Divider ─────────────────────────────────── */}
+        <hr className={cn('border-0 border-t', scheme.divider)} />
 
-        {/* Mid: media network + trust · informasi */}
-        <div className="grid grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-12">
-          <div>
-            <p className={headingClass}>Jaringan Media</p>
-            <div className="grid grid-cols-4 gap-x-8">
+        {/* ── Mid: Jaringan Media · Informasi ─────────── */}
+        {/* Desktop: 642px network + 48px gap + 380px info
+            Mobile: only Informasi shown */}
+        <div className="flex flex-col gap-8 py-8 pb-10 md:flex-row md:items-start md:gap-12">
+
+          {/* Jaringan Media — hidden on mobile */}
+          <div className="hidden md:flex md:w-[642px] md:flex-none md:flex-col md:gap-6">
+            <p className={cn('text-[18px] font-bold uppercase leading-none tracking-[-0.2px]', scheme.heading)}>
+              Jaringan Media
+            </p>
+
+            {/* 4 columns × 127px each, space-between */}
+            <div className="flex justify-between gap-6">
               {MEDIA_NETWORK.map((col, ci) => (
-                <div key={ci}>
+                <div key={ci} className="flex w-[127px] flex-none flex-col gap-4">
                   {col.map((link) => (
                     <a
                       key={link.name}
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={linkClass}
+                      className={linkCls}
                     >
                       {link.name}
                     </a>
@@ -248,19 +267,27 @@ export function Footer({ className, variant = 'dark', ...props }: FooterProps) {
               ))}
             </div>
 
-            <div className="mt-8">
-              <p className={headingClass}>Trustworthy News</p>
+            <div>
+              <p className={cn('mb-4 text-[18px] font-bold uppercase leading-none tracking-[-0.2px]', scheme.heading)}>
+                Trustworthy News
+              </p>
               <TrustBadges />
             </div>
           </div>
 
-          <div>
-            <p className={headingClass}>Informasi</p>
-            <div className="grid grid-cols-2 gap-x-8">
+          {/* Informasi — full-width on mobile, 380px on desktop */}
+          <div className="w-full md:flex md:w-[380px] md:flex-shrink-0 md:flex-col md:gap-6">
+            {/* Title hidden on mobile */}
+            <p className={cn('hidden text-[18px] font-bold uppercase leading-none tracking-[-0.2px] md:block', scheme.heading)}>
+              Informasi
+            </p>
+
+            {/* Links: row layout on both mobile and desktop (per Figma) */}
+            <div className="flex flex-row gap-4 md:gap-6">
               {INFO_COLS.map((col, ci) => (
-                <div key={ci}>
+                <div key={ci} className="min-w-0 flex-1 flex flex-col gap-4">
                   {col.map((link) => (
-                    <a key={link.name} href={link.url} className={linkClass}>
+                    <a key={link.name} href={link.url} className={linkCls}>
                       {link.name}
                     </a>
                   ))}
@@ -271,9 +298,10 @@ export function Footer({ className, variant = 'dark', ...props }: FooterProps) {
         </div>
       </div>
 
+      {/* ── Copyright bar ───────────────────────────────── */}
       <div className={scheme.bottom}>
-        <div className="mx-auto max-w-[1366px] px-10 py-4">
-          <span className="text-sm">© {year} Tempo - Hak Cipta Dilindungi Hukum</span>
+        <div className="mx-auto flex max-w-[1366px] justify-center px-5 py-4">
+          <span className="text-xs">© {year} Tempo - Hak Cipta Dilindungi Hukum</span>
         </div>
       </div>
     </footer>
