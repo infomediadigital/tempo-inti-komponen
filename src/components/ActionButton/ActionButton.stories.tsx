@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Crown, LogIn } from 'lucide-react'
+import { Crown } from 'lucide-react'
 import { ActionButton } from './ActionButton'
+import { UserCircleIcon } from '@/icons/header'
 
 const meta: Meta<typeof ActionButton> = {
   title: 'Components/ActionButton',
@@ -24,12 +25,12 @@ const meta: Meta<typeof ActionButton> = {
 export default meta
 type Story = StoryObj<typeof ActionButton>
 
-/** Primary / Fill / Small / Default — exact header spec (141 × 32). */
+/** Primary / Fill / Small — exact header spec (141 × 32). */
 export const PrimarySmall: Story = {
   args: { className: 'w-[141px]' },
 }
 
-/** "Langganan" with a leading icon. */
+/** "Langganan" with a crown icon. */
 export const Langganan: Story = {
   args: {
     children: 'Langganan',
@@ -38,14 +39,24 @@ export const Langganan: Story = {
   },
 }
 
-/** "Masuk" with a leading icon. */
+/** "Masuk" with the User icon. */
 export const Masuk: Story = {
   args: {
     children: 'Masuk',
     variant: 'secondary',
     styleType: 'outline',
     showIconLeft: true,
-    iconLeft: <LogIn className="h-4 w-4" />,
+    iconLeft: <UserCircleIcon className="h-4 w-4" />,
+  },
+}
+
+/** Icon-only User button — pass only the icon as children, no label. */
+export const UserIconOnly: Story = {
+  args: {
+    children: <UserCircleIcon className="h-[28px] w-[28px]" />,
+    variant: 'secondary',
+    styleType: 'outline',
+    className: 'h-8 w-8 p-0',
   },
 }
 

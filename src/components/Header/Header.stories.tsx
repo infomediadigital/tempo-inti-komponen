@@ -27,10 +27,11 @@ const meta: Meta<typeof Header> = {
 export default meta
 type Story = StoryObj<typeof Header>
 
-/** Desktop bar with the default logo and a Primary / Fill / Small button. View at md+ width. */
+/** Desktop bar with the default logo, user icon, and a Primary / Fill / Small button. View at md+ width. */
 export const Default: Story = {
   args: {
     fixed: false,
+    onDesktopUserClick: () => {},
     actions: (
       <ActionButton variant="primary" styleType="fill" size="small" className="w-[141px]">
         Langganan
@@ -43,6 +44,7 @@ export const Default: Story = {
 export const WithNavigation: Story = {
   args: {
     fixed: false,
+    onDesktopUserClick: () => {},
     children: (
       <>
         <a href="#" className="text-sm font-semibold text-neutral-900 hover:text-brand-primary">

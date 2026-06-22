@@ -28,6 +28,10 @@ export interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
   menuLabel?: string
   /** Mobile: accessible label for the user button. */
   userLabel?: string
+  /** Desktop: click handler for the user / account icon shown before `actions`. */
+  onDesktopUserClick?: () => void
+  /** Desktop: accessible label for the desktop user icon button. Default 'Akun'. */
+  desktopUserLabel?: string
 }
 
 /**
@@ -52,6 +56,8 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(
       onUserClick,
       menuLabel = 'Menu dan pencarian',
       userLabel = 'Masuk',
+      onDesktopUserClick,
+      desktopUserLabel = 'Akun',
       ...props
     },
     ref,
@@ -68,7 +74,7 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(
         )}
         {...props}
       >
-        {/* Mobile bar: logo left, user + menu icons grouped on the right */}
+        {/* Mobile bar: logo left, user + menu icons on the right */}
         <div className="flex h-full items-center justify-between px-6 py-2 md:hidden">
           <div className="flex h-8 items-center">{logoNode}</div>
 
@@ -77,7 +83,7 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(
               type="button"
               onClick={onUserClick}
               aria-label={userLabel}
-              className="flex cursor-pointer items-center text-neutral-900"
+              className="inline-flex cursor-pointer items-center text-neutral-900 transition-opacity hover:opacity-70"
             >
               <UserCircleIcon className="h-7 w-7" />
             </button>
@@ -85,7 +91,7 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(
               type="button"
               onClick={onMenuClick}
               aria-label={menuLabel}
-              className="flex cursor-pointer items-center text-neutral-900"
+              className="inline-flex cursor-pointer items-center text-neutral-900 transition-opacity hover:opacity-70"
             >
               <MenuSearchIcon className="h-7 w-7" />
             </button>
@@ -98,7 +104,21 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(
           {children && (
             <nav className="flex flex-1 items-center justify-center gap-6">{children}</nav>
           )}
-          {actions && <div className="flex h-8 shrink-0 items-center gap-4">{actions}</div>}
+          {(onDesktopUserClick || actions) && (
+            <div className="flex h-8 shrink-0 items-center gap-4">
+              {onDesktopUserClick && (
+                <button
+                  type="button"
+                  onClick={onDesktopUserClick}
+                  aria-label={desktopUserLabel}
+                  className="inline-flex cursor-pointer items-center text-neutral-900 transition-opacity hover:opacity-70"
+                >
+                  <UserCircleIcon className="h-7 w-7" />
+                </button>
+              )}
+              {actions}
+            </div>
+          )}
         </div>
       </header>
     )
