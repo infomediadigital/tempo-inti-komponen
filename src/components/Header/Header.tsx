@@ -1,6 +1,5 @@
 import { forwardRef, type ReactNode } from 'react'
 import { cn } from '@/utils/cn'
-import { MenuSearchIcon, UserCircleIcon } from '@/icons/header'
 
 /** Default placeholder logo. Replace via the `logo` prop. */
 function DefaultLogo() {
@@ -12,52 +11,61 @@ function DefaultLogo() {
 }
 
 export interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
-  /** Brand logo — left on desktop, centered on mobile. Defaults to a Tempo placeholder. */
+  /**
+   * Brand logo. Appears on desktop (left) and as the mobile left fallback
+   * when `mobileLeft` is not provided.
+   */
   logo?: ReactNode
-  /** Desktop navigation content rendered in the center of the bar. */
+
+  /**
+   * Mobile bar **left** slot. When omitted the `logo` is shown instead.
+   * Use this to place an action button (e.g. "Langganan") on the left for
+   * subscription/play headers.
+   */
+  mobileLeft?: ReactNode
+
+  /**
+   * Mobile bar **right** slot. Fully optional — compose any combination of
+   * icon buttons (user, menu/search, etc.) from outside.
+   * When omitted the right side is empty.
+   */
+  mobileRight?: ReactNode
+
+  /** Desktop center nav — links, tabs, etc. */
   children?: ReactNode
-  /** Desktop right-aligned content, e.g. the primary call-to-action button(s). */
+
+  /**
+   * Desktop **right** slot — action buttons, user icon, etc.
+   * When omitted the right side is empty.
+   */
   actions?: ReactNode
-  /** Pin the header to the top of the viewport (Scroll Position: Fixed). Default true. */
+
+  /** Pin the header to the top of the viewport. Default `true`. */
   fixed?: boolean
-  /** Mobile: click handler for the left menu / search button. */
-  onMenuClick?: () => void
-  /** Mobile: click handler for the right user / login button. */
-  onUserClick?: () => void
-  /** Mobile: accessible label for the menu button. */
-  menuLabel?: string
-  /** Mobile: accessible label for the user button. */
-  userLabel?: string
-  /** Desktop: click handler for the user / account icon shown before `actions`. */
-  onDesktopUserClick?: () => void
-  /** Desktop: accessible label for the desktop user icon button. Default 'Akun'. */
-  desktopUserLabel?: string
 }
 
 /**
  * Responsive site header / top navigation bar.
  *
- * - **Mobile** (`< md`): 49px tall — logo on the left, user/login + menu/search
- *   buttons grouped on the right; 1px bottom border (#EEEEEE), 8px/24px padding.
- * - **Desktop** (`>= md`): 64px tall — logo, optional centered nav, right-aligned
- *   actions; 1px bottom border (#E0E0E0), content capped at 1366px.
+ * **Mobile** (`< md`, 49px): fully slot-based.
+ * - `mobileLeft` — left slot (falls back to `logo`).
+ * - `mobileRight` — right slot (any icon buttons; omit to hide).
  *
- * Fixed to the top of the viewport by default.
+ * **Desktop** (`>= md`, 64px): logo · optional center `children` · optional `actions`.
+ * Content capped at 1366px, fixed to top by default.
+ *
+ * All slots are optional — pass only what the app needs.
  */
 export const Header = forwardRef<HTMLElement, HeaderProps>(
   (
     {
       className,
       logo,
+      mobileLeft,
+      mobileRight,
       children,
       actions,
       fixed = true,
-      onMenuClick,
-      onUserClick,
-      menuLabel = 'Menu dan pencarian',
-      userLabel = 'Masuk',
-      onDesktopUserClick,
-      desktopUserLabel = 'Akun',
       ...props
     },
     ref,
@@ -74,50 +82,24 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(
         )}
         {...props}
       >
-        {/* Mobile bar: logo left, user + menu icons on the right */}
+        {/* ── Mobile bar ──────────────────────────────────────── */}
         <div className="flex h-full items-center justify-between px-6 py-2 md:hidden">
-          <div className="flex h-8 items-center">{logoNode}</div>
-
-          <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={onUserClick}
-              aria-label={userLabel}
-              className="inline-flex cursor-pointer items-center text-neutral-900 transition-opacity hover:opacity-70"
-            >
-              <UserCircleIcon className="h-7 w-7" />
-            </button>
-            <button
-              type="button"
-              onClick={onMenuClick}
-              aria-label={menuLabel}
-              className="inline-flex cursor-pointer items-center text-neutral-900 transition-opacity hover:opacity-70"
-            >
-              <MenuSearchIcon className="h-7 w-7" />
-            </button>
+          <div className="flex h-8 items-center">
+            {mobileLeft ?? logoNode}
           </div>
+          {mobileRight && (
+            <div className="flex items-center gap-4">{mobileRight}</div>
+          )}
         </div>
 
-        {/* Desktop bar */}
+        {/* ── Desktop bar ─────────────────────────────────────── */}
         <div className="mx-auto hidden h-full max-w-[1366px] items-center justify-between gap-6 px-34 md:flex">
           <div className="flex h-8 shrink-0 items-center gap-2">{logoNode}</div>
           {children && (
             <nav className="flex flex-1 items-center justify-center gap-6">{children}</nav>
           )}
-          {(onDesktopUserClick || actions) && (
-            <div className="flex h-8 shrink-0 items-center gap-4">
-              {onDesktopUserClick && (
-                <button
-                  type="button"
-                  onClick={onDesktopUserClick}
-                  aria-label={desktopUserLabel}
-                  className="inline-flex cursor-pointer items-center text-neutral-900 transition-opacity hover:opacity-70"
-                >
-                  <UserCircleIcon className="h-7 w-7" />
-                </button>
-              )}
-              {actions}
-            </div>
+          {actions && (
+            <div className="flex h-8 shrink-0 items-center gap-4">{actions}</div>
           )}
         </div>
       </header>
