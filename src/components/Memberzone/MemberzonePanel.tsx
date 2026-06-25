@@ -60,8 +60,8 @@ export function MemberzonePanel({
           <Avatar size="sm" bordered initials={user.firstLetterOfName} alt={user.fullname} />
         </button>
       </Memberzone.Trigger>
-      <Memberzone.Content side={side} className={cn('w-full bg-neutral-100 p-0', className)}>
-        <Memberzone.Header>
+      <Memberzone.Content side={side} className={cn('flex w-full flex-col bg-neutral-100 p-0', className)}>
+        <Memberzone.Header className="flex-none">
           <Memberzone.Title className="border-b border-neutral-200 bg-white py-3 text-center text-xl font-semibold">
             {title}
           </Memberzone.Title>
@@ -76,6 +76,7 @@ export function MemberzonePanel({
           socialLinks={socialLinks}
           currentPath={currentPath}
           onLogout={onLogout}
+          className="flex-1 overflow-y-auto"
         />
       </Memberzone.Content>
     </Memberzone.Root>
