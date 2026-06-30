@@ -8,7 +8,7 @@ describe('Header', () => {
   it('renders as a banner landmark with the default logo', () => {
     render(<Header />)
     expect(screen.getByRole('banner')).toBeInTheDocument()
-    expect(screen.getAllByText('Tempo').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByRole('img', { name: 'Tempo' }).length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders mobileRight slot buttons and fires their callbacks', async () => {
