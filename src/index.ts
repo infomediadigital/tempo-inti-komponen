@@ -18,6 +18,7 @@ export * from './components/SearchMenu'
 export * from './components/Sidebar'
 export * from './components/Memberzone'
 export * from './components/BottomNavbar'
+export * from './components/AppSwitcher'
 
 // Icons
 export * from './icons'
