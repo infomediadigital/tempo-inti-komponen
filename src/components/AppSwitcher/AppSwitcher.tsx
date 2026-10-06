@@ -68,6 +68,12 @@ const DEFAULT_APPS: AppItem[] = [
   },
 ]
 
+const MAX_COLUMNS = 3
+
+// Static class maps so Tailwind can detect them.
+const GRID_COLS = { 1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3' } as const
+const PANEL_WIDTH = { 1: 'w-[160px]', 2: 'w-[240px]', 3: 'w-[320px]' } as const
+
 // ── Component ──────────────────────────────────────────────────────────────
 
 /**
@@ -84,6 +90,8 @@ const DEFAULT_APPS: AppItem[] = [
 export function AppSwitcher({ title = 'Tempo Internal', apps = DEFAULT_APPS, className }: AppSwitcherProps) {
   const [open, setOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  // Grid grows with the app count up to 3 columns; extra rows scroll.
+  const columns = Math.min(Math.max(apps.length, 1), MAX_COLUMNS) as 1 | 2 | 3
 
   // Close on click-outside
   useEffect(() => {
@@ -128,7 +136,10 @@ export function AppSwitcher({ title = 'Tempo Internal', apps = DEFAULT_APPS, cla
         <div
           role="dialog"
           aria-label={title}
-          className="absolute left-0 top-full z-50 mt-2 w-[280px] overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-lg"
+          className={cn(
+            'absolute left-0 top-full z-50 mt-2 max-w-[calc(100vw-1rem)] overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-lg',
+            PANEL_WIDTH[columns],
+          )}
         >
           {/* Panel header */}
           <div className="border-b border-neutral-100 px-4 py-3">
@@ -136,7 +147,7 @@ export function AppSwitcher({ title = 'Tempo Internal', apps = DEFAULT_APPS, cla
           </div>
 
           {/* App grid */}
-          <div className="grid grid-cols-2 gap-1 p-3">
+          <div className={cn('grid max-h-[22rem] gap-1 overflow-y-auto p-3', GRID_COLS[columns])}>
             {apps.map((app) => (
               <a
                 key={app.name}

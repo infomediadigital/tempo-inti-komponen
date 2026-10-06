@@ -41,6 +41,33 @@ export const CustomApps: Story = {
   },
 }
 
+const makeApps = (count: number) =>
+  Array.from({ length: count }, (_, i) => ({
+    name: `App ${i + 1}`,
+    href: '#',
+    initials: `A${i + 1}`,
+  }))
+
+/** One app — grid collapses to a single narrow column. */
+export const SingleColumn: Story = {
+  args: { apps: makeApps(1) },
+}
+
+/** Two apps — two columns. */
+export const TwoColumns: Story = {
+  args: { apps: makeApps(2) },
+}
+
+/** Full 3×3 grid — nine apps. */
+export const ThreeByThree: Story = {
+  args: { apps: makeApps(9) },
+}
+
+/** More than nine apps — grid stays at 3 columns and scrolls vertically. */
+export const Overflow: Story = {
+  args: { apps: makeApps(15) },
+}
+
 /** Placed inside a simulated header bar — shows real-world usage context. */
 export const InHeader: Story = {
   decorators: [
