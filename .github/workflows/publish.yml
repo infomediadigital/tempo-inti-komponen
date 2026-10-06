@@ -22,7 +22,7 @@ jobs:
         run: |
           node --version
           npm --version
-          
+
       - run: npm ci
       - run: npm run lint
       - run: npm run typecheck
@@ -30,5 +30,3 @@ jobs:
       - run: npm run build --if-present
 
       - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
