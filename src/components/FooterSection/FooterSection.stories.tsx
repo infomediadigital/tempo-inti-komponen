@@ -5,6 +5,7 @@ const meta: Meta<typeof FooterSection> = {
   title: 'Components/Footer Section',
   component: FooterSection,
   tags: ['autodocs'],
+  args: { baseUrl: 'https://en.tempo.co' },
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -37,6 +38,11 @@ const meta: Meta<typeof FooterSection> = {
           '}',
           '```',
           '',
+          'Internal links (About Us, Privacy Policy, ...) are relative by default (`/about-us`), so',
+          'they resolve against the host app (localhost, staging, production). Set `baseUrl` to',
+          'prefix them, e.g. `baseUrl="https://en.tempo.co"`. These stories use',
+          '`https://en.tempo.co` so the links work inside Storybook.',
+          '',
           'Accepts any standard `<footer>` HTML attributes; pass `className` to add spacing or',
           'override styles (e.g. `<FooterSection className="mt-16" />`).',
         ].join('\n'),
@@ -54,4 +60,9 @@ export const Default: Story = {}
 /** Custom background via className. */
 export const CustomBackground: Story = {
   args: { className: 'bg-[#0b1f3a]' },
+}
+
+/** Relative internal links (`/about-us`): the component's default outside Storybook. */
+export const RelativeLinks: Story = {
+  args: { baseUrl: '' },
 }

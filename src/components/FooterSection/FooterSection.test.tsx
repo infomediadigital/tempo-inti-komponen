@@ -26,7 +26,7 @@ describe('FooterSection', () => {
     )
     expect(screen.getAllByRole('link', { name: 'About Us' })[0]).toHaveAttribute(
       'href',
-      'https://en.tempo.co/about-us',
+      '/about-us',
     )
     expect(screen.getAllByRole('link', { name: 'Tempo Privacy Policy' }).length).toBeGreaterThan(0)
   })
@@ -35,7 +35,9 @@ describe('FooterSection', () => {
     render(<FooterSection />)
     expect(screen.getAllByRole('link', { name: 'Instagram' }).length).toBeGreaterThan(0)
     expect(screen.getAllByRole('link', { name: 'Get it on Google Play' }).length).toBeGreaterThan(0)
-    expect(screen.getAllByRole('link', { name: 'Download on the App Store' }).length).toBeGreaterThan(0)
+    expect(
+      screen.getAllByRole('link', { name: 'Download on the App Store' }).length,
+    ).toBeGreaterThan(0)
   })
 
   it('renders the English editorial quote', () => {
@@ -62,12 +64,58 @@ describe('FooterSection', () => {
     render(<FooterSection />)
     expect(screen.getByRole('link', { name: 'Privacy Policy' })).toHaveAttribute(
       'href',
-      'https://en.tempo.co/privacy-policy',
+      '/privacy-policy',
+    )
+    expect(screen.getByRole('link', { name: 'Terms & Conditions' })).toHaveAttribute(
+      'href',
+      '/terms-of-service',
+    )
+  })
+
+  it('uses baseUrl for internal links and tolerates a trailing slash', () => {
+    render(<FooterSection baseUrl="http://localhost:3000/" />)
+    expect(screen.getByRole('link', { name: 'About Us' })).toHaveAttribute(
+      'href',
+      'http://localhost:3000/about-us',
+    )
+    expect(screen.getByRole('link', { name: 'Privacy Policy' })).toHaveAttribute(
+      'href',
+      'http://localhost:3000/privacy-policy',
+    )
+  })
+
+  it('renders absolute links when baseUrl is https://en.tempo.co', () => {
+    render(<FooterSection baseUrl="https://en.tempo.co" />)
+    expect(screen.getByRole('link', { name: 'About Us' })).toHaveAttribute(
+      'href',
+      'https://en.tempo.co/about-us',
     )
     expect(screen.getByRole('link', { name: 'Terms & Conditions' })).toHaveAttribute(
       'href',
       'https://en.tempo.co/terms-of-service',
     )
+  })
+
+  it('keeps app-store badges at their natural size', () => {
+    render(<FooterSection />)
+    const img = screen.getAllByAltText('Get it on Google Play')[0]
+    expect(img).toHaveAttribute('width', '130')
+    expect(img).toHaveAttribute('height', '40')
+    expect(img).toHaveClass('h-auto', 'w-full')
+  })
+
+  it('centers the KNOWLEDGE, LIFESTYLE and YOUTH blocks on desktop, text stays left-aligned', () => {
+    render(<FooterSection />)
+    // The desktop layout renders after the mobile one, so take the last match.
+    const column = (title: string) => {
+      const headings = screen.getAllByRole('heading', { name: title })
+      return headings[headings.length - 1].parentElement!.parentElement as HTMLElement
+    }
+    expect(column('NEWS')).not.toHaveClass('items-center')
+    for (const title of ['KNOWLEDGE', 'LIFESTYLE', 'YOUTH']) {
+      expect(column(title)).toHaveClass('items-center')
+      expect(column(title)).not.toHaveClass('text-center')
+    }
   })
 
   it('merges a custom className', () => {

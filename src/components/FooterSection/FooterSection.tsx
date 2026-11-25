@@ -56,20 +56,25 @@ const TOP_LINKS: { title: string; links: FooterLink[] }[] = [
 ]
 
 const INFO_LINKS: FooterLink[] = [
-  { name: 'About Us', url: 'https://en.tempo.co/about-us' },
-  { name: 'Cyber Media Guidelines', url: 'https://en.tempo.co/cyber-media-guidelines' },
-  { name: 'AI Content Usage Guidelines', url: 'https://en.tempo.co/ai-content-guidelines' },
+  { name: 'About Us', url: '/about-us' },
+  { name: 'Cyber Media Guidelines', url: '/cyber-media-guidelines' },
+  { name: 'AI Content Usage Guidelines', url: '/ai-content-usage-guidelines' },
   {
     name: 'Code of Ethics and Journalistic Guidelines',
-    url: 'https://en.tempo.co/code-of-ethics',
+    url: '/code-of-ethics-and-journalistic-guidelines',
   },
-  { name: 'Terms of Service', url: 'https://en.tempo.co/terms-of-service' },
-  { name: 'Advertise', url: 'https://en.tempo.co/advertise' },
-  { name: 'Tempo Privacy Policy', url: 'https://en.tempo.co/privacy-policy' },
+  { name: 'Terms of Service', url: '/terms-of-service' },
+  { name: 'Advertise', url: '/advertise' },
+  { name: 'Tempo Privacy Policy', url: '/privacy-policy' },
 ]
 
-const PRIVACY_URL = 'https://en.tempo.co/privacy-policy'
-const TERMS_URL = 'https://en.tempo.co/terms-of-service'
+const PRIVACY_PATH = '/privacy-policy'
+const TERMS_PATH = '/terms-of-service'
+
+/** Joins baseUrl and a path ("" baseUrl keeps the link relative, e.g. "/about-us"). */
+function withBase(baseUrl: string, path: string): string {
+  return `${baseUrl.replace(/\/+$/, '')}${path}`
+}
 
 const SOCIAL: { label: string; url: string; icon: string }[] = [
   { label: 'Instagram', url: 'https://www.instagram.com/tempodotco/', icon: instagramIcon },
@@ -86,7 +91,7 @@ function currentYearJakarta(): string {
   }).format(new Date())
 }
 
-const LINK_CLS = 'text-[14px] font-medium text-white/90 transition-colors hover:text-white'
+const LINK_CLS = 'text-[14px] font-normal text-white/90 transition-colors hover:text-white'
 
 function SocialIcons() {
   return (
@@ -116,22 +121,34 @@ function SocialIcons() {
 
 function AppButtons() {
   return (
-    <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+    <div className="flex flex-col items-start gap-3 sm:flex-row">
       <a
         href="https://play.google.com/store/apps/details?id=co.tempo.media"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block transition-transform hover:scale-105"
+        className="inline-block min-w-0 max-w-[130px] transition-transform hover:scale-105"
       >
-        <img src={playStoreImg} alt="Get it on Google Play" className="h-10 w-auto" />
+        <img
+          src={playStoreImg}
+          alt="Get it on Google Play"
+          width={130}
+          height={40}
+          className="block h-auto w-full"
+        />
       </a>
       <a
         href="https://apps.apple.com/id/app/tempo/id1380254415"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block transition-transform hover:scale-105"
+        className="inline-block min-w-0 max-w-[130px] transition-transform hover:scale-105"
       >
-        <img src={appStoreImg} alt="Download on the App Store" className="h-10 w-auto" />
+        <img
+          src={appStoreImg}
+          alt="Download on the App Store"
+          width={130}
+          height={40}
+          className="block h-auto w-full"
+        />
       </a>
     </div>
   )
@@ -169,20 +186,28 @@ function Quote() {
   return (
     <>
       <p className="text-[15px] leading-relaxed text-white/90">
-        &ldquo;The foundation of our journalism is not one that takes sides with any single
-        faction. We believe that virtue as well as vice is not the monopoly of any one party. We
-        believe the duty of the press is not to spread prejudice, but to eradicate it; not to sow
-        hatred, but to foster mutual understanding. Our journalism is not meant for insult or
-        sneering, nor is it intended to flatter or grovel.&rdquo;
+        &ldquo;The foundation of our journalism is not one that takes sides with any single faction.
+        We believe that virtue as well as vice is not the monopoly of any one party. We believe the
+        duty of the press is not to spread prejudice, but to eradicate it; not to sow hatred, but to
+        foster mutual understanding. Our journalism is not meant for insult or sneering, nor is it
+        intended to flatter or grovel.&rdquo;
       </p>
       <p className="mt-2 text-[15px] text-white/90">— March 6, 1971</p>
     </>
   )
 }
 
-export type FooterSectionProps = React.HTMLAttributes<HTMLElement>
+export interface FooterSectionProps extends React.HTMLAttributes<HTMLElement> {
+  /**
+   * Prefix for the Tempo English internal links (About Us, Privacy Policy, ...).
+   * Defaults to `""`, which renders relative links (`/about-us`) that resolve against the
+   * host app's own origin (localhost, staging, production). Pass an absolute URL such as
+   * `https://en.tempo.co` to force absolute links.
+   */
+  baseUrl?: string
+}
 
-export function FooterSection({ className, ...props }: FooterSectionProps) {
+export function FooterSection({ className, baseUrl = '', ...props }: FooterSectionProps) {
   const year = currentYearJakarta()
 
   return (
@@ -218,11 +243,11 @@ export function FooterSection({ className, ...props }: FooterSectionProps) {
           <p className="w-full text-[14px] text-white/90">
             © {year} Tempo English All Rights Reserved
             <span aria-hidden="true"> · </span>
-            <a href={PRIVACY_URL} className="hover:text-white hover:underline">
+            <a href={withBase(baseUrl, PRIVACY_PATH)} className="hover:text-white hover:underline">
               Privacy Policy
             </a>
             <span aria-hidden="true"> · </span>
-            <a href={TERMS_URL} className="hover:text-white hover:underline">
+            <a href={withBase(baseUrl, TERMS_PATH)} className="hover:text-white hover:underline">
               Terms &amp; Conditions
             </a>
           </p>
@@ -233,9 +258,19 @@ export function FooterSection({ className, ...props }: FooterSectionProps) {
       {/* Desktop layout */}
       <div className="mx-auto hidden max-w-[1400px] px-12 py-10 lg:block">
         <div className="grid grid-cols-1 gap-8 border-b border-white/30 pb-10 lg:grid-cols-5 lg:gap-0 lg:divide-x lg:divide-white/30">
-          {TOP_LINKS.map((section) => (
-            <div key={section.title} className="flex flex-col px-4 first:pl-0 lg:px-8">
-              <CategoryLinks section={section} />
+          {TOP_LINKS.map((section, i) => (
+            <div
+              key={section.title}
+              className={cn(
+                'flex flex-col px-4 first:pl-0 lg:px-8',
+                // NEWS stays at the left edge; the other columns sit centered as a block while
+                // their heading and links stay left-aligned inside it.
+                i > 0 && 'items-center',
+              )}
+            >
+              <div className="w-fit">
+                <CategoryLinks section={section} />
+              </div>
             </div>
           ))}
           <div className="flex flex-col px-4 lg:pl-8">
@@ -246,14 +281,21 @@ export function FooterSection({ className, ...props }: FooterSectionProps) {
           </div>
         </div>
         <div className="grid grid-cols-1 gap-10 border-b border-white/30 py-10 lg:grid-cols-12 lg:gap-0 lg:divide-x lg:divide-white/30">
-          <div className="pr-0 lg:col-span-7 lg:pr-12">
-            <Quote />
+          <div className="pr-0 lg:col-span-8 lg:pr-12">
+            {/* Left edge stays where a centered 560px block would start; it grows to the right. */}
+            <div className="ml-[calc((100%-560px)/2)] mt-4">
+              <Quote />
+            </div>
           </div>
-          <div className="pl-0 lg:col-span-5 lg:pl-12">
+          <div className="pl-0 lg:col-span-4 lg:pl-12">
             <h3 className="mb-5 text-[16px] font-bold">Information</h3>
             <div className="grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-2">
               {INFO_LINKS.map((link) => (
-                <a key={link.name} href={link.url} className={LINK_CLS}>
+                <a
+                  key={link.name}
+                  href={withBase(baseUrl, link.url)}
+                  className={cn(LINK_CLS, 'max-w-[170px]')}
+                >
                   {link.name}
                 </a>
               ))}
