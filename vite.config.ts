@@ -18,6 +18,10 @@ export default defineConfig({
       insertTypesEntry: true,
       include: ['src'],
       exclude: ['src/**/*.stories.tsx', 'src/**/*.test.tsx', 'src/test/**'],
+      beforeWriteFile: (filePath, content) => ({
+        filePath: filePath.replace(`${resolve(__dirname, 'dist')}/src/`, `${resolve(__dirname, 'dist')}/`),
+        content,
+      }),
     }),
   ],
   build: {
