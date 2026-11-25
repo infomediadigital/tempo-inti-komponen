@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import dts from 'vite-plugin-dts'
+import { copyFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 export default defineConfig({
@@ -19,10 +20,20 @@ export default defineConfig({
       include: ['src'],
       exclude: ['src/**/*.stories.tsx', 'src/**/*.test.tsx', 'src/test/**'],
       beforeWriteFile: (filePath, content) => ({
-        filePath: filePath.replace(`${resolve(__dirname, 'dist')}/src/`, `${resolve(__dirname, 'dist')}/`),
+        filePath: filePath.replace(
+          `${resolve(__dirname, 'dist')}/src/`,
+          `${resolve(__dirname, 'dist')}/`,
+        ),
         content,
       }),
     }),
+    {
+      // Ship src/source.css as dist/source.css (see package.json "exports").
+      name: 'copy-source-css',
+      closeBundle() {
+        copyFileSync(resolve(__dirname, 'src/source.css'), resolve(__dirname, 'dist/source.css'))
+      },
+    },
   ],
   build: {
     // Footer assets are inlined as data-URIs; don't copy public/ into the package.

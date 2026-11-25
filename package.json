@@ -18,7 +18,8 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles.css": "./dist/style.css"
+    "./styles.css": "./dist/style.css",
+    "./source.css": "./dist/source.css"
   },
   "files": [
     "dist",

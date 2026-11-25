@@ -1,0 +1,4 @@
+/* Lets a Tailwind v4 host app generate the utilities used by this library's bundle:
+   @import '@tempomedia/antarmuka/source.css';
+   The path is relative to this file once copied to dist/, next to index.js. */
+@source "./index.js";
